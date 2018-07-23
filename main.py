@@ -46,8 +46,8 @@ class UserProfilePage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/login', LoginPage),
-    ('form'/ FormPage),
-    ('people', PeoplePage),
-    ('profile', ProfilePage),
-    ('userprofile', UserProfilePage)
+    ('/form', FormPage),
+    ('/people', PeoplePage),
+    ('/profile', ProfilePage),
+    ('/userprofile', UserProfilePage)
 ], debug=True)
