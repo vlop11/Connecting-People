@@ -8,14 +8,16 @@
   margin: auto;
 }
 
-body {
-  background-image: url("http://hdqwalls.com/wallpapers/city-blurred-hd.jpg");
+html {
+  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
+  background-size: cover;
 }
 
 #title {
   font-size: 36pt;
   letter-spacing: 5px;
   text-align: center;
+  font-weight: lighter;
 }
 #padding {
   height: 150px;
@@ -33,6 +35,7 @@ body {
 #login-title {
   text-align: center;
   font-family: helvetica;
+  font-weight: lighter;
   font-size: 20pt;
 }
 

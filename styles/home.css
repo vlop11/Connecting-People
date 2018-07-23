@@ -8,8 +8,9 @@
   height: 80px;
 }
 
-body {
-  background-image: url("http://hdqwalls.com/wallpapers/city-blurred-hd.jpg");
+html {
+  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
+  background-size: cover;
 }
 
 #title {
@@ -17,6 +18,7 @@ body {
   letter-spacing: 5px;
   text-align: left;
   padding-left: 20px;
+  font-weight: lighter;
 }
 
 .buttons a {
@@ -24,4 +26,5 @@ body {
   padding: 14px 17px;
   color: white;
   font-family: helvetica;
+  font-weight: lighter;
 }

@@ -8,16 +8,6 @@
   margin: auto;
 }
 
-body {
-  background-image: url("http://hdqwalls.com/wallpapers/city-blurred-hd.jpg");
-}
-
-#title {
-  font-size: 36pt;
-  letter-spacing: 5px;
-  text-align: center;
-}
-
 #login-header {
   display: flex;
   justify-content: center;
@@ -27,11 +17,7 @@ body {
   font-size: 14pt;
   color: white;
   font-family: helvetica;
-}
-
-#padding {
-  height: 70px;
-  width: auto;
+  font-weight: lighter;
 }
 
 #outer-box {
@@ -47,5 +33,23 @@ body {
 #slogan {
   text-align: center;
   font-family: helvetica;
+  font-weight: lighter;
   font-size: 36pt;
+}
+
+body {
+  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#title {
+  font-size: 36pt;
+  letter-spacing: 5px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#padding {
+  height: 70px;
+  width: auto;
 }
