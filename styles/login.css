@@ -1,15 +1,22 @@
 #header {
-  text-align: center;
   font-family: helvetica;
-  border-style: dashed;
+  border-style: solid;
+  border-width: 2px;
   border-color: black;
+  background-color: #e6e6e6;
+  width: 800px;
+  margin: auto;
+}
+
+body {
+  background-image: url("http://hdqwalls.com/wallpapers/city-blurred-hd.jpg");
 }
 
 #title {
   font-size: 36pt;
   letter-spacing: 5px;
+  text-align: center;
 }
-
 #padding {
   height: 150px;
   width: auto;
