@@ -1,8 +1,11 @@
 #header {
   font-family: helvetica;
-  border-style: dashed;
+  border-style: solid;
+  border-width: 2px;
   border-color: black;
-  background-color: #FAEBD7;
+  background-color: #e6e6e6;
+  width: 800px;
+  margin: auto;
 }
 
 body {
@@ -17,17 +20,17 @@ body {
 
 #login-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 #login {
-  padding-top: 5px;
+  padding-top: 15px;
   font-size: 14pt;
   color: white;
   font-family: helvetica;
 }
 
 #padding {
-  height: 100px;
+  height: 70px;
   width: auto;
 }
 
