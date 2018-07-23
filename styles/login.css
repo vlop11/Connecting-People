@@ -30,6 +30,7 @@ html {
   border-style: solid;
   border-color: black;
   margin: auto;
+  background-color: white;
 }
 
 #login-title {
