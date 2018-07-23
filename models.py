@@ -13,21 +13,18 @@ class User(ndb.Model):
     #the image location will be entered here
     image = ndb.StringProperty()
 
-    # These refer to an index in the Interest and University arrays
-    # We use integers because it is MUCH faster to compare integers than strings
-    # Thank you Taylor
-
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
     interests = ndb.KeyProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
     university = ndb.IntegerProperty(required = True)
- 
-    # will hold an ordered list of EachInterest objects
-    # LocalStructuredProperty means EachInterest will be a "blob"
-    # so EachInterest will look like {'name': "somestring", 'alias': ["somestring", "someotherstring"], etc}
-    # aka its values go into dictionary format (which is what I want)
 
 class University(ndb.Model):
     # the ordered list of university names (held as a string) will go here
     university_array = ndb.StringProperty(repeated = True)
+
+# Stuff that is no longer useful, but make cool notes
+    # will hold an ordered list of EachInterest objects
+    # LocalStructuredProperty means EachInterest will be a "blob"
+    # so EachInterest will look like {'name': "somestring", 'alias': ["somestring", "someotherstring"], etc}
+    # aka its values go into dictionary format (which is what I want)
