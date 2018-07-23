@@ -1,0 +1,21 @@
+#header {
+  text-align: center;
+  font-family: helvetica;
+}
+
+#title {
+  font-size: 36pt;
+  letter-spacing: 5px;
+}
+
+#padding {
+  height: 150px;
+  width: auto;
+}
+body {
+  background-color: #c3f9e8;
+}
+select {
+  /* background-color: white; */
+  cursor: pointer;
+}

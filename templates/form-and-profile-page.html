@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Form and Profile Page</title>
-    <link rel="stylesheet" type="text/css" href="styles/form-and-profile.css">
+    <title>Form Page</title>
+    <link rel="stylesheet" type="text/css" href="../styles/form-and-profile.css">
   </head>
 
   <body>
+    <div id="header">
+      <h1 id="title">U-REACH</h1>
+    </div>
+    <div id="padding">
+    </div>
+    <div id="loginBox">
+      <h3 id="login-title">Login</h3>
+      <form id="login-form">
+        <input type="text" placeholder="username"><br><br>
+        <input type="text" placeholder="password"><br><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+    <form method="post">
+      <h3 id="school-title">School</h3>
+      <select name="universities">
+        <option value="georgia_institute_of_technology">Georgia Institute of Technology</option>
+        <option value="georgia_state_university">Georgia State University</option>
+        <option value="emory_university">Emory University</option>
+        <option value="university_of_georgia">University of Georgia</option>
+        <option value="kennesaw_state_university">Kennesaw State University</option>
+      </select>
+      <h3 id="school-title">Age</h3>
+      <select name="age">
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+    </form>
   </body>
-
 </html>
