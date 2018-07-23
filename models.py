@@ -20,7 +20,7 @@ class User(ndb.Model):
 class Interest(ndb.Model):
     # will hold an ordered list of EachInterest objects
     # LocalStructuredProperty means EachInterest will be a "blob"
-    # so EachInterest will look like {name: "somestring", alias: ["somestring", "someotherstring"], etc}
+    # so EachInterest will look like {'name': "somestring", 'alias': ["somestring", "someotherstring"], etc}
     # aka its values go into dictionary format (which is what I want)
     interest_array = ndb.LocalStructuredProperty(EachInterest, repeated=True)
 
