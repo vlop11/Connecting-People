@@ -22,7 +22,7 @@ class User(ndb.Model):
 
     #the index of the user's university will be here
     university = ndb.IntegerProperty(required = True)
-
+ 
     # will hold an ordered list of EachInterest objects
     # LocalStructuredProperty means EachInterest will be a "blob"
     # so EachInterest will look like {'name': "somestring", 'alias': ["somestring", "someotherstring"], etc}
