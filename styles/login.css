@@ -1,11 +1,23 @@
 #header {
   text-align: center;
   font-family: helvetica;
+  border-style: dashed;
+  border-colo: black;
+}
+
+#title {
+  font-size: 36pt;
+  letter-spacing: 5px;
+}
+
+#padding {
+  height: 150px;
+  width: auto;
 }
 
 #loginBox {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 300px;
   border-style: solid;
   border-color: black;
   margin: auto;
