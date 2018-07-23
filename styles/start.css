@@ -2,6 +2,11 @@
   font-family: helvetica;
   border-style: dashed;
   border-color: black;
+  background-color: #FAEBD7;
+}
+
+body {
+  background-image: url("http://hdqwalls.com/wallpapers/city-blurred-hd.jpg");
 }
 
 #title {
@@ -10,10 +15,15 @@
   text-align: center;
 }
 
+#login-header {
+  display: flex;
+  justify-content: flex-end;
+}
 #login {
-  text-align:left;
+  padding-top: 5px;
   font-size: 14pt;
-  color: black;
+  color: white;
+  font-family: helvetica;
 }
 
 #padding {
