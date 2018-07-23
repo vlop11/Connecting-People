@@ -1,0 +1,38 @@
+#header {
+  font-family: helvetica;
+  border-style: dashed;
+  border-color: black;
+}
+
+#title {
+  font-size: 36pt;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+#login {
+  text-align:left;
+  font-size: 14pt;
+  color: black;
+}
+
+#padding {
+  height: 100px;
+  width: auto;
+}
+
+#outer-box {
+  width: 800px;
+  height: 500px;
+  border-style: solid;
+  border-color: black;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+#slogan {
+  text-align: center;
+  font-family: helvetica;
+  font-size: 36pt;
+}
