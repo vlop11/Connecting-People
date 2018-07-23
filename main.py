@@ -11,6 +11,12 @@ jinja_current_directory = jinja2.Environment(
     extensions = ['jinja2.ext.autoescape'],
     autoescape = True)
 
+class StartPage(webapp2.RequestHandler):
+    def get(self):
+        start_template = \
+                jinja_current_directory.get_template('templates/start-page.html')
+        self.response.write(start_template.render())
+
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = \
@@ -36,7 +42,8 @@ class PeoplePage(webapp2.RequestHandler):
             self.response.write(people_template.render())
 
 app = webapp2.WSGIApplication([
-    ('/', HomePage),
+    ('/', StartPage),
+    ('/home', HomePage),
     ('/login', LoginPage),
     ('/form', FormPage),
     ('/people', PeoplePage),
