@@ -1,5 +1,11 @@
 from google.appengine.ext import ndb
 
+class Interest(ndb.Model):
+    # the information for EachInterst object will go here
+    name = ndb.StringProperty(required=True)    # interest name                             ex. League of Legends
+    alias = ndb.StringProperty(repeated=True)   # other names for interest                  ex. LoL or LOL
+    number_of_users = ndb.IntegerProperty()     # how many people are interested in this    ex. 40
+
 class User(ndb.Model):
     # user's name will be entered here
     name = ndb.StringProperty(required = True)
@@ -11,24 +17,16 @@ class User(ndb.Model):
     # We use integers because it is MUCH faster to compare integers than strings
     # Thank you Taylor
 
-    # The indexes of the user's interests will be here
-    interests = ndb.IntegerProperty(repeated = True)
+    # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
+    interests = ndb.KeyProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
     university = ndb.IntegerProperty(required = True)
 
-class EachInterest(ndb.Model):
-    # the information for EachInterst object will go here
-    name = ndb.StringProperty(required=True)    # interest name                             ex. League of Legends
-    alias = ndb.StringProperty(repeated=True)   # other names for interest                  ex. LoL or LOL
-    number_of_users = ndb.IntegerProperty()     # how many people are interested in this    ex. 40
-
-class Interest(ndb.Model):
     # will hold an ordered list of EachInterest objects
     # LocalStructuredProperty means EachInterest will be a "blob"
     # so EachInterest will look like {'name': "somestring", 'alias': ["somestring", "someotherstring"], etc}
     # aka its values go into dictionary format (which is what I want)
-    interest_array = ndb.LocalStructuredProperty(EachInterest, repeated=True)
 
 class University(ndb.Model):
     # the ordered list of university names (held as a string) will go here
