@@ -3,7 +3,6 @@ import jinja2
 import os
 from models import User
 from models import Interest
-from models import EachInterest
 from models import University
 
 jinja_current_directory = jinja2.Environment(
