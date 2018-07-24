@@ -151,7 +151,11 @@ class PeoplePage(webapp2.RequestHandler):
         def post(self):
             school = self.request.get("schools")
 
-            query = User.query(User.university == school)
+            test_dict = {"matches": User.query(User.university == school).fetch()}
+            people_template = \
+                jinja_current_directory.get_template('templates/people-page.html')
+            self.response.write(people_template.render(test_dict))
+
 
 app = webapp2.WSGIApplication([
     ('/', StartPage),
