@@ -163,14 +163,8 @@ class FormPage(webapp2.RequestHandler):
 
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
-        people_template = \
-            jinja_current_directory.get_template('templates/people-page.html')
-        self.response.write(people_template.render())
-
-    def post(self):
-        uni_number_in_form = self.request.get("schools")
         # dict with the matches for university
-        test_dict = {"matches": User.query(User.university == uni_number_in_form).fetch()}
+        test_dict = {"matches": User.query(User.university == get_logged_in_user(self).university).fetch()}
         # render matches into the html (or it should anyway)
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         self.response.write(people_template.render(test_dict))
