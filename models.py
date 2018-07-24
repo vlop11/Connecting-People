@@ -14,7 +14,6 @@ class User(ndb.Model):
     # user's email MUST be entered when it is created, and it goes here
     email = ndb.StringProperty(required=True)
 
-
     #the image location will be entered here
     image = ndb.StringProperty()
 

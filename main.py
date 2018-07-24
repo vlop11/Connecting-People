@@ -175,7 +175,8 @@ class PeoplePage(webapp2.RequestHandler):
             return None
 
         # get list of all university matches
-        uni_matches = User.query(User.university == current_user.university, User.name != current_user.name).fetch()
+        uni_matches = User.query(User.university == current_user.university, User.email != current_user.email).fetch()
+        test_dict = {'matches': uni_matches}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(test_dict))
 

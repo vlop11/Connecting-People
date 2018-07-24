@@ -10,7 +10,8 @@
 
 .buttons a {
 float: right;
-padding: 14px 17px;
+padding-right: 14px;
+/* padding-top: 10px; */
 color: white;
 font-family: helvetica;
 font-weight: lighter;
@@ -44,4 +45,11 @@ html {
   width: 1000px;
   background-color: white;
   margin: auto;
+  overflow: auto;
+  }
+
+#person {
+  font-family: helvetica;
+  font-weight: lighter;
+  text-align: center;
 }
