@@ -118,7 +118,7 @@ class LoginPage(webapp2.RequestHandler):
             our_user.name)
 
         home_template = jinja_current_directory.get_template('templates/home-page.html')
-        self.response.write(login_template.render())
+        self.response.write(home_template.render())
 
             # need to figure out how we're doing interests
             # do they already exist? How do I get those interest objects made
