@@ -106,9 +106,10 @@ class LoginPage(webapp2.RequestHandler):
             self.error(500)
             return
         our_user = User(
-            name="john",
-            image="image_url",
-            id = user.user_id())
+            name="john",                # current user's name                   # from htm form?
+            image="image_url",          # current user's profile pic location   # from html form?
+            email = user.nickname()     # current user's email
+            id = user.user_id())        # current user's ID number
         our_user.put()
         self.response.write('Thanks for signing up, %s!' %
             our_user.name)
