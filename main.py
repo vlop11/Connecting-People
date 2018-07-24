@@ -123,20 +123,26 @@ class LoginPage(webapp2.RequestHandler):
             # university=self.request.get('university'),
 
 class FormPage(webapp2.RequestHandler):
-        def get(self):
-            form_template = \
-                    jinja_current_directory.get_template('templates/form-and-profile-page.html')
-            self.response.write(form_template.render())
-        def post(self):
-            form_template = jinja_current_directory.get_template('templates/home-page.html')
-            self.response.write(form_template.render())
+    def get(self):
+        form_template = \
+            jinja_current_directory.get_template('templates/form-and-profile-page.html')
+        self.response.write(form_template.render())
+    def submit_form(request):
+        if request.method == 'POST':
+            form = Form(request.POST)
+            if not form.has_changed():
+                self.response.write("Please fill out all fields before submitting.")
+                # Generate Error
+    def post(self):
+        form_template = jinja_current_directory.get_template('templates/home-page.html')
+        self.response.write(form_template.render())
 
 
 class PeoplePage(webapp2.RequestHandler):
-        def get(self):
-            people_template = \
-                    jinja_current_directory.get_template('templates/people-page.html')
-            self.response.write(people_template.render())
+    def get(self):
+        people_template = \
+            jinja_current_directory.get_template('templates/people-page.html')
+        self.response.write(people_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', StartPage),
