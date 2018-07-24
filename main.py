@@ -144,7 +144,7 @@ class FormPage(webapp2.RequestHandler):
         uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
-        social_media_in_form = self.request.get("social_media_title")
+        social_media_in_form = self.request.get("social_media")
         interest_in_form = self.request.get("interest_title")
         # image_in_form = self.request.get("image")
 
@@ -155,6 +155,7 @@ class FormPage(webapp2.RequestHandler):
         our_user.university = uni_in_form
         our_user.age = age_in_form
         our_user.major = major_in_form
+        our_user.social_media = social_media_in_form
         our_user.interest = interest_in_form
         # our_user.image = image_in_form
 
