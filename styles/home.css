@@ -57,11 +57,11 @@ font-weight: lighter;
 .buttons a {
   float: right;
   padding: 14px 17px;
-  color: white;
+  color: black;
   font-family: helvetica;
   font-weight: lighter;
 }
-.image-head {
+/* .image-head {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -71,4 +71,4 @@ font-weight: lighter;
   padding: 0;
   color: black;
   text-align: center;
-}
+} */
