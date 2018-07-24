@@ -2,7 +2,7 @@ from google.appengine.ext import ndb
 from google.appengine.api import users  # allows access to Google ID for log-in purposes
 
 class Interest(ndb.Model):
-    # the information for EachInterst object will go here
+    # the information for Interst object will go here
     name = ndb.StringProperty(required=True)    # interest name                             ex. League of Legends
     alias = ndb.StringProperty(repeated=True)   # other names for interest                  ex. LoL or LOL
     number_of_users = ndb.IntegerProperty()     # how many people are interested in this    ex. 40
