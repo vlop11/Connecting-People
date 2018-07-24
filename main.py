@@ -149,9 +149,11 @@ class PeoplePage(webapp2.RequestHandler):
         self.response.write(people_template.render())
 
         def post(self):
+            # gets the input from HTML
             school = self.request.get("schools")
-
+            # dict with the matches for university
             test_dict = {"matches": User.query(User.university == school).fetch()}
+            # render matches into the html (or it should anyway)
             people_template = \
                 jinja_current_directory.get_template('templates/people-page.html')
             self.response.write(people_template.render(test_dict))
