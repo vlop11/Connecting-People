@@ -139,7 +139,7 @@ class FormPage(webapp2.RequestHandler):
         form_template = jinja_current_directory.get_template('templates/home-page.html')
 
         # get the user info from their form
-        uni_number_in_form = self.request.get("schools").parseInt()
+        uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media_title")
@@ -150,7 +150,7 @@ class FormPage(webapp2.RequestHandler):
         our_user = get_existing_user(self)
 
         # give our_user values in the data store
-        our_user.university = uni_number_in_form
+        our_user.university = uni_in_form
         our_user.age = age_in_form
         out_user.major = major_in_form
         our_user.interest = interest_in_form

@@ -21,13 +21,9 @@ class User(ndb.Model):
     interests = ndb.KeyProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
-    university = ndb.IntegerProperty()
+    university = ndb.StringProperty()
 
     major = ndb.StringProperty()
-
-class University(ndb.Model):
-    # the ordered list of university names (held as a string) will go here
-    university_array = ndb.StringProperty(repeated = True)
 
 # Stuff that is no longer useful, but make cool notes
     # will hold an ordered list of EachInterest objects
