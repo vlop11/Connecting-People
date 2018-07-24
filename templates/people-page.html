@@ -16,7 +16,10 @@
     </div>
     <div id="people">
       <h3 id="people-text">people to hang with!</h3>
-      <p>{{matches}}</p>
+      <div>{% for item in matches %}
+          {{ item }}<br>
+        {% endfor %}
+      </div>
     </div>
   </body>
 
