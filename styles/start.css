@@ -12,12 +12,14 @@
   display: flex;
   justify-content: center;
 }
-#login {
+
+.navbutton {
   padding-top: 15px;
   font-size: 14pt;
   color: white;
   font-family: helvetica;
   font-weight: lighter;
+  padding: 14px 17px;
 }
 
 #outer-box {
