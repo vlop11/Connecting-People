@@ -163,10 +163,16 @@ class FormPage(webapp2.RequestHandler):
 
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
-        # dict with the matches for university
-        test_dict = {"matches": User.query(User.university == get_logged_in_user(self).university).fetch()}
-        # render matches into the html (or it should anyway)
+        current_user = get_logged_in_user(self)
+        people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
+        if current_user.university == None:
+            people_temp_dict = {'Error' : "ERROR fill out form first!"}
+            self.response.write(people_template.render(people_temp_dict))
+
+        # dict with the matches for university
+        test_dict = {"matches": User.query(User.university == current_user.university).fetch()}
+        # render matches into the html (or it should anyway)
         self.response.write(people_template.render(test_dict))
 
 
