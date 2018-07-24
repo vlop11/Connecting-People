@@ -109,8 +109,6 @@ class LoginPage(webapp2.RequestHandler):
             self.error(500)
             return
         our_user = User(
-            name="john",                # current user's name                   # from htm form?
-            image="image_url",          # current user's profile pic location   # from html form?
             email=user.nickname(),     # current user's email
             id=user.user_id())        # current user's ID number
         our_user.put()
@@ -146,6 +144,7 @@ class FormPage(webapp2.RequestHandler):
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media_title")
         interest_in_form = self.request.get("interest_title")
+        # image_in_form = self.request.get("image")
 
         # our_user is the existing_user
         our_user = get_existing_user(self)
@@ -155,6 +154,7 @@ class FormPage(webapp2.RequestHandler):
         our_user.age = age_in_form
         out_user.major = major_in_form
         our_user.interest = interest_in_form
+        # our_user.image = image_in_form
 
         # save those changes to our_user values
         our_user.put()
@@ -169,11 +169,9 @@ class PeoplePage(webapp2.RequestHandler):
         self.response.write(people_template.render())
 
         def post(self):
-            # gets the input from HTML
             school = self.request.get("schools")
-            # dict with the matches for university
+
             test_dict = {"matches": User.query(User.university == school).fetch()}
-            # render matches into the html (or it should anyway)
             people_template = \
                 jinja_current_directory.get_template('templates/people-page.html')
             self.response.write(people_template.render(test_dict))
