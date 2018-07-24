@@ -56,6 +56,7 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = \
                 jinja_current_directory.get_template('templates/home-page.html')
+        user = users.get_current_user()
         self.response.write(home_template.render())
 
 class LoginPage(webapp2.RequestHandler):
@@ -75,14 +76,14 @@ class LoginPage(webapp2.RequestHandler):
             our_site_user = User.get_by_id(user.user_id())
             #dictionary - this gives the sign-out link
             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+            signout_link = users.create_logout_url('/')
 
             # if the user is logged in to both Google and us
             if our_site_user:
-                self.response.write('''
-                Welcome %s (%s)! <br> %s <br>''' % (
-                 our_site_user.name,
-                 email_address,
-                 signout_link_html))
+                sign_out_dict = {'signout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
+                home_template = \
+                    jinja_current_directory.get_template('templates/home-page.html')
+                self.response.write(home_template.render(sign_out_dict))
 
               # If the user is logged into Google but never been to us before..
             else:
