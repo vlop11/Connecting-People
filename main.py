@@ -139,6 +139,26 @@ class FormPage(webapp2.RequestHandler):
                 # Generate Error
     def post(self):
         form_template = jinja_current_directory.get_template('templates/home-page.html')
+
+        # get the user info from their form
+        uni_number_in_form = self.request.get("schools")
+        age_in_form = self.request.get("ages")
+        major_in_form = self.request.get("majors")
+        social_media_in_form = self.request.get("social_media_title")
+        interest_in_form = self.request.get("interest_title")
+
+        # our_user is the existing_user
+        our_user = get_existing_user(self)
+
+        # give our_user values in the data store
+        our_user.university = uni_number_in_form
+        our_user.age = age_in_form
+        out_user.major = major_in_form
+        our_user.interest = interest_in_form
+
+        # save those changes to our_user values
+        our_user.put()
+
         self.response.write(form_template.render())
 
 
