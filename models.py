@@ -2,8 +2,7 @@ from google.appengine.ext import ndb
 from google.appengine.api import users  # allows access to Google ID for log-in purposes
 
 class Interest(ndb.Model):
-    # the information for EachInterst object will go here
-    email = ndb.StringProperty(required=True)
+    # the information for Interst object will go here
     name = ndb.StringProperty(required=True)    # interest name                             ex. League of Legends
     alias = ndb.StringProperty(repeated=True)   # other names for interest                  ex. LoL or LOL
     number_of_users = ndb.IntegerProperty()     # how many people are interested in this    ex. 40
@@ -12,8 +11,14 @@ class User(ndb.Model):
     # user's name will be entered here
     name = ndb.StringProperty(required = True)
 
+    # user's email will be entered here
+    email = ndb.StringProperty(required=True)
+
     #the image location will be entered here
     image = ndb.StringProperty()
+
+    # user's age will be stored here
+    age = ndb.IntegerProperty()
 
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
     majors = ndb.KeyProperty(Major, repeated = True)
