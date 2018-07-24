@@ -101,7 +101,6 @@ class LoginPage(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
-        print user.user_id()
         if not user:
             # You shouldn't be able to get here without being logged in
             self.error(500)
