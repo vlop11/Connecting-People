@@ -148,12 +148,12 @@ class FormPage(webapp2.RequestHandler):
         interest_in_form = self.request.get("interest_title")
 
         # our_user is the existing_user
-        our_user = get_existing_user(self)
+        our_user = get_logged_in_user(self)
 
         # give our_user values in the data store
         our_user.university = uni_number_in_form
         our_user.age = age_in_form
-        out_user.major = major_in_form
+        our_user.major = major_in_form
         our_user.interest = interest_in_form
 
         # save those changes to our_user values
@@ -168,15 +168,14 @@ class PeoplePage(webapp2.RequestHandler):
             jinja_current_directory.get_template('templates/people-page.html')
         self.response.write(people_template.render())
 
-        def post(self):
-            # gets the input from HTML
-            school = self.request.get("schools")
-            # dict with the matches for university
-            test_dict = {"matches": User.query(User.university == school).fetch()}
-            # render matches into the html (or it should anyway)
-            people_template = \
+    def post(self):
+        uni_number_in_form = self.request.get("schools")
+        # dict with the matches for university
+        test_dict = {"matches": User.query(User.university == uni_number_in_form).fetch()}
+        # render matches into the html (or it should anyway)
+        people_template = \
                 jinja_current_directory.get_template('templates/people-page.html')
-            self.response.write(people_template.render(test_dict))
+        self.response.write(people_template.render(test_dict))
 
 
 app = webapp2.WSGIApplication([

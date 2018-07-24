@@ -11,7 +11,7 @@ class User(ndb.Model):
     # user's name will be entered here
     name = ndb.StringProperty(required = True)
 
-    email = ndb.StringProperty(required=True)
+    # email = ndb.StringProperty(required=True)
 
     #the image location will be entered here
     image = ndb.StringProperty()
@@ -20,7 +20,7 @@ class User(ndb.Model):
     interests = ndb.KeyProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
-    university = ndb.IntegerProperty()
+    university = ndb.StringProperty()
 
     major = ndb.StringProperty()
 
