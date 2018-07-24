@@ -4,7 +4,7 @@ from google.appengine.api import users  # allows access to Google ID for log-in 
 class Interest(ndb.Model):
     # the information for Interst object will go here
     name = ndb.StringProperty(required=True)    # interest name                             ex. League of Legends
-    alias = ndb.StringProperty(repeated=True)   # other names for interest                  ex. LoL or LOL
+    alias = ndb.StringProperty()   # other names for interest                  ex. LoL or LOL
     number_of_users = ndb.IntegerProperty()     # how many people are interested in this    ex. 40
 
 class User(ndb.Model):
@@ -18,7 +18,7 @@ class User(ndb.Model):
     image = ndb.StringProperty()
 
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
-    interests = ndb.KeyProperty(Interest, repeated = True)
+    interests = ndb.StructuredProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
     university = ndb.StringProperty()
