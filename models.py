@@ -19,7 +19,7 @@ class User(ndb.Model):
     interests = ndb.KeyProperty(Interest, repeated = True)
 
     #the index of the user's university will be here
-    university = ndb.IntegerProperty(required = True)
+    university = ndb.IntegerProperty()
 
 class University(ndb.Model):
     # the ordered list of university names (held as a string) will go here

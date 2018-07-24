@@ -73,53 +73,55 @@ class LoginPage(webapp2.RequestHandler):
             # hopefully it returns something...
             our_site_user = User.get_by_id(user.user_id())
             #dictionary - this gives the sign-out link
-            login_dict['what_to_write'] = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+            signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
             # if the user is logged in to both Google and us
             if our_site_user:
-                login_dict['what_to_write'] = 'Welcome %s %s (%s)! <br> %s <br>' % (
-                 cssi_user.first_name,
-                 cssi_user.last_name,
+                self.response.write('''
+                Welcome %s (%s)! <br> %s <br>''' % (
+                 our_site_user.name,
                  email_address,
-                 signout_link_html)
+                 signout_link_html))
               # If the user is logged into Google but never been to us before..
             else:
-                login_dict['what_to_write'] = '''
+                self.response.write('''
                  Welcome to our site, %s!  Please sign up! <br>
-                 <form method="post" action="/">
+                 <form method="post" action="/login">
                  <input type="text" name="first_name">
                  <input type="text" name="last_name">
                  <input type="submit">
                  </form><br> %s <br>
-                 ''' % (email_address, signout_link_html)
+                 ''' % (email_address, signout_link_html))
 
             # Otherwise, the user isn't logged in to Google or us!
         else:
-            login_dict['what_to_write'] = '''
+            self.response.write('''
                 Please log in to use our site! <br>
                 <a href="%s">Sign in</a>''' % (
-                  users.create_login_url('/'))
-        self.response.write(login_template.render(login_dict))
+                  users.create_login_url('/')))
 
     def post(self):
         user = users.get_current_user()
+        print user.user_id()
         if not user:
             # You shouldn't be able to get here without being logged in
             self.error(500)
             return
         our_user = User(
-            name=self.request.get('name'),
-            image=self.request.get('image'),
-            # need to figure out how we're doing interests
-            # do they already exist? How do I get those interest objects made
-            # before I put them into the our_user object like this??
-            # interests=self.request.get('interests'),
-            university=self.request.get('university'),
-            id=user.user_id())
+            name="john",
+            image="image_url",
+            id = user.user_id())
         our_user.put()
         self.response.write('Thanks for signing up, %s!' %
             our_user.name)
 
+        login_template = jinja_current_directory.get_template('templates/home-page.html')
         self.response.write(login_template.render())
+
+            # need to figure out how we're doing interests
+            # do they already exist? How do I get those interest objects made
+            # before I put them into the our_user object like this??
+            # interests=self.request.get('interests'),
+            # university=self.request.get('university'),
 
 class FormPage(webapp2.RequestHandler):
         def get(self):
