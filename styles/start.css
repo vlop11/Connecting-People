@@ -1,3 +1,77 @@
+#header {
+  font-family: helvetica;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: #e6e6e6;
+  width: 800px;
+  margin: auto;
+}
+
+#login-header {
+  display: flex;
+  justify-content: center;
+}
+
+.navbutton {
+  padding-top: 15px;
+  font-size: 14pt;
+  color: white;
+  font-family: helvetica;
+  font-weight: lighter;
+  padding: 14px 17px;
+}
+
+#outer-box {
+  width: 800px;
+  height: 500px;
+  border-style: solid;
+  border-color: black;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+#slogan {
+  text-align: center;
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 36pt;
+}
+
+body {
+  background: url("../images/bank.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .footer {
+  flex-shrink: 0;
+  color: white;
+  border-top-style: solid;
+  border-color: white;
+  font-family: helvetica;
+  font-weight: lighter;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #e6e6e6;
+} */
+
+#title {
+  font-size: 36pt;
+  letter-spacing: 5px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#padding {
+  height: 70px;
+  width: auto;
+}
+
 /* #header {
   font-family: helvetica;
   border-style: solid;
@@ -56,62 +130,3 @@ body {
   height: 70px;
   width: auto;
 } */
-
-#header {
-  font-family: helvetica;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  background-color: #e6e6e6;
-  width: 800px;
-  margin: auto;
-}
-
-#login-header {
-  display: flex;
-  justify-content: center;
-}
-
-.navbutton {
-  padding-top: 15px;
-  font-size: 14pt;
-  color: white;
-  font-family: helvetica;
-  font-weight: lighter;
-  padding: 14px 17px;
-}
-
-#outer-box {
-  width: 800px;
-  height: 500px;
-  border-style: solid;
-  border-color: black;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-
-#slogan {
-  text-align: center;
-  font-family: helvetica;
-  font-weight: lighter;
-  font-size: 36pt;
-}
-
-body {
-  background: url("../images/bank.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
-
-#title {
-  font-size: 36pt;
-  letter-spacing: 5px;
-  text-align: center;
-  font-weight: lighter;
-}
-
-#padding {
-  height: 70px;
-  width: auto;
-}
