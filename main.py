@@ -65,7 +65,8 @@ class LoginPage(webapp2.RequestHandler):
                 jinja_current_directory.get_template('templates/login-page.html')
         login_dict = {}
         user = users.get_current_user()
-        # if the user is logged if __name__ == '__main__':
+
+        # if the user is logged with Google
         if user:
             # magical users method from app engine xD
             email_address = user.nickname()
@@ -74,6 +75,7 @@ class LoginPage(webapp2.RequestHandler):
             our_site_user = User.get_by_id(user.user_id())
             #dictionary - this gives the sign-out link
             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+
             # if the user is logged in to both Google and us
             if our_site_user:
                 self.response.write('''
@@ -81,6 +83,7 @@ class LoginPage(webapp2.RequestHandler):
                  our_site_user.name,
                  email_address,
                  signout_link_html))
+
               # If the user is logged into Google but never been to us before..
             else:
                 self.response.write('''
@@ -102,14 +105,14 @@ class LoginPage(webapp2.RequestHandler):
     def post(self):
         user = users.get_current_user()
         if not user:
-            # You shouldn't be able to get here without being logged in
+            # You shouldn't be able to get here without being logged in to Google
             self.error(500)
             return
         our_user = User(
             name="john",                # current user's name                   # from htm form?
             image="image_url",          # current user's profile pic location   # from html form?
-            email = user.nickname()     # current user's email
-            id = user.user_id())        # current user's ID number
+            email=user.nickname(),     # current user's email
+            id=user.user_id())        # current user's ID number
         our_user.put()
         self.response.write('Thanks for signing up, %s!' %
             our_user.name)
