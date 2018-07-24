@@ -41,7 +41,7 @@ font-weight: lighter;
   height: 80px;
 }
 
-html {
+.html_image {
   background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -60,4 +60,15 @@ html {
   color: white;
   font-family: helvetica;
   font-weight: lighter;
+}
+.image-head {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 500px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: black;
+  text-align: center;
 }
