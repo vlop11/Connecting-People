@@ -128,6 +128,10 @@ class FormPage(webapp2.RequestHandler):
             form_template = \
                     jinja_current_directory.get_template('templates/form-and-profile-page.html')
             self.response.write(form_template.render())
+        def post(self):
+            form_template = jinja_current_directory.get_template('templates/home-page.html')
+            self.response.write(form_template.render())
+
 
 class PeoplePage(webapp2.RequestHandler):
         def get(self):
