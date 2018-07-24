@@ -17,6 +17,9 @@ class User(ndb.Model):
     #the image location will be entered here
     image = ndb.StringProperty()
 
+    # user's age will be stored here
+    age = ndb.IntegerProperty()
+
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
     interests = ndb.KeyProperty(Interest, repeated = True)
 
