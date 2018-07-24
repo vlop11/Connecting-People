@@ -17,7 +17,7 @@ font-weight: lighter;
 }
 
 html {
-  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
+  background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
