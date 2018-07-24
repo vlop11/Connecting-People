@@ -63,6 +63,7 @@ class LoginPage(webapp2.RequestHandler):
         login_template = \
                 jinja_current_directory.get_template('templates/login-page.html')
         login_dict = {}
+        name = ""
         user = users.get_current_user()
 
         # if the user is logged with Google
@@ -109,7 +110,9 @@ class LoginPage(webapp2.RequestHandler):
             return
         our_user = User(
             email=user.nickname(),     # current user's email
-            id=user.user_id())        # current user's ID number
+            id=user.user_id(),         # current user's ID number
+            name=self.request.get("first_name") + " " + self.request.get("last_name")
+            )
         our_user.put()
         self.response.write('Thanks for signing up, %s!' %
             our_user.name)
@@ -171,8 +174,8 @@ class PeoplePage(webapp2.RequestHandler):
             self.response.write(people_template.render(people_temp_dict))
             return None
 
-        # dict with the matches for university
-        test_dict = {"matches": User.query(User.university == current_user.university, User.name != current_user.name).fetch()}
+        # get list of all university matches
+        uni_matches = User.query(User.university == current_user.university, User.name != current_user.name).fetch()
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(test_dict))
 
