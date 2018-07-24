@@ -16,7 +16,7 @@ class User(ndb.Model):
     image = ndb.StringProperty()
 
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
-    interests = ndb.KeyProperty(Interest, repeated = True)
+    majors = ndb.KeyProperty(Major, repeated = True)
 
     #the index of the user's university will be here
     university = ndb.IntegerProperty()

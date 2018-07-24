@@ -114,7 +114,7 @@ class LoginPage(webapp2.RequestHandler):
         self.response.write('Thanks for signing up, %s!' %
             our_user.name)
 
-        login_template = jinja_current_directory.get_template('templates/home-page.html')
+        home_template = jinja_current_directory.get_template('templates/home-page.html')
         self.response.write(login_template.render())
 
             # need to figure out how we're doing interests
@@ -134,6 +134,11 @@ class PeoplePage(webapp2.RequestHandler):
             people_template = \
                     jinja_current_directory.get_template('templates/people-page.html')
             self.response.write(people_template.render())
+
+        def post(self):
+            school = self.request.get("schools")
+
+            query = User.query(User.university == school)
 
 app = webapp2.WSGIApplication([
     ('/', StartPage),

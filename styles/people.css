@@ -8,6 +8,14 @@
   height: 80px;
 }
 
+.buttons a {
+float: right;
+padding: 14px 17px;
+color: white;
+font-family: helvetica;
+font-weight: lighter;
+}
+
 html {
   background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
   background-size: cover;
