@@ -31,10 +31,10 @@ body {
 }
 
 
-/* select {
+select {
   background-color: white;
   cursor: pointer;
-} */
+}
 .container {
     border-radius: 5px;
     background-color: #ffe8eb;
@@ -52,7 +52,7 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #99bfb3;
 }
 input[type=text], select, textarea {
     width: 50%; /* Full width */
