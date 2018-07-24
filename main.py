@@ -169,6 +169,7 @@ class PeoplePage(webapp2.RequestHandler):
         if current_user.university == None:
             people_temp_dict = {'Error' : "ERROR fill out form first!"}
             self.response.write(people_template.render(people_temp_dict))
+            return None
 
         # dict with the matches for university
         test_dict = {"matches": User.query(User.university == current_user.university).fetch()}
