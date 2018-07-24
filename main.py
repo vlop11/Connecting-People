@@ -4,7 +4,6 @@ import os
 from google.appengine.api import users
 from models import User
 from models import Interest
-from models import University
 
 jinja_current_directory = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -109,8 +108,6 @@ class LoginPage(webapp2.RequestHandler):
             self.error(500)
             return
         our_user = User(
-            name="john",                # current user's name                   # from htm form?
-            image="image_url",          # current user's profile pic location   # from html form?
             email=user.nickname(),     # current user's email
             id=user.user_id())        # current user's ID number
         our_user.put()
@@ -141,20 +138,22 @@ class FormPage(webapp2.RequestHandler):
         form_template = jinja_current_directory.get_template('templates/home-page.html')
 
         # get the user info from their form
-        uni_number_in_form = self.request.get("schools")
+        uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media_title")
         interest_in_form = self.request.get("interest_title")
+        # image_in_form = self.request.get("image")
 
         # our_user is the existing_user
         our_user = get_logged_in_user(self)
 
         # give our_user values in the data store
-        our_user.university = uni_number_in_form
+        our_user.university = uni_in_form
         our_user.age = age_in_form
         our_user.major = major_in_form
         our_user.interest = interest_in_form
+        # our_user.image = image_in_form
 
         # save those changes to our_user values
         our_user.put()
@@ -173,8 +172,7 @@ class PeoplePage(webapp2.RequestHandler):
         # dict with the matches for university
         test_dict = {"matches": User.query(User.university == uni_number_in_form).fetch()}
         # render matches into the html (or it should anyway)
-        people_template = \
-                jinja_current_directory.get_template('templates/people-page.html')
+        people_template = jinja_current_directory.get_template('templates/people-page.html')
         self.response.write(people_template.render(test_dict))
 
 
