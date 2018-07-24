@@ -13,4 +13,9 @@ indexes:
 - kind: User
   properties:
   - name: university
+  - name: email
+
+- kind: User
+  properties:
+  - name: university
   - name: name

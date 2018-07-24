@@ -166,13 +166,13 @@ class PeoplePage(webapp2.RequestHandler):
         current_user = get_logged_in_user(self)
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
-        if current_user.university:
+        if not current_user.university:
             people_temp_dict = {'Error' : "ERROR fill out form first!"}
             self.response.write(people_template.render(people_temp_dict))
             return None
 
         # dict with the matches for university
-        test_dict = {"matches": User.query(User.university == current_user.university, User.name != current_user.name).fetch()}
+        test_dict = {"matches": User.query(User.university == current_user.university, User.email != current_user.email).fetch()}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(test_dict))
 
