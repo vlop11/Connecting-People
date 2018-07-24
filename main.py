@@ -174,24 +174,11 @@ class PeoplePage(webapp2.RequestHandler):
             self.response.write(people_template.render(people_temp_dict))
             return None
 
-        # matched users from best to worst
-        matched_users = []
-
         # get list of all university matches
-        uni_matches = User.query(User.university == current_user.university, User.name != current_user.name).fetch()
-
-        for that_user in uni_matches:
-            if(that_user.compare_interests(current_user) == 3):
-                matched_users.insert(0, that_user)
-            elif (that_user.compare_interests(current_user) == 2):
-                matched_users.insert(int(len(matched_users)/2), that_user)
-            elif (that_user.compare_interests(current_user) == 1):
-                matched_users.append(that_user)
-
-        # dictionary that holds an array / list of matched users from best to worst
-        dict_of_users = {'matched_users': matched_users}
+        uni_matches = User.query(User.university == current_user.university, User.email != current_user.email).fetch()
+        test_dict = {'matches': uni_matches}
         # render matches into the html (or it should anyway)
-        self.response.write(people_template.render(dict_of_users))
+        self.response.write(people_template.render(test_dict))
 
 
 app = webapp2.WSGIApplication([

@@ -17,11 +17,15 @@
     <h2>{{Error}}</h2>
     <div id="people">
       <h3 id="people-text">people to hang with!</h3>
-      <div>{% for item in matches %}
-          {{ item }}<br>
+      <div>
+        {% for item in matches %}<br>
+        <div id="person">
+          <h3 id='name'>{{item.name}}</h3>
+          <h3 id="email">{{item.email}}</h3>
+          <h3 id="social_media">{{item.social_media}}</h3>
+        </div>
         {% endfor %}
       </div>
-    </div>
   </body>
 
 </html>
