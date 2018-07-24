@@ -172,7 +172,7 @@ class PeoplePage(webapp2.RequestHandler):
             return None
 
         # dict with the matches for university
-        test_dict = {"matches": User.query(User.university == current_user.university).fetch()}
+        test_dict = {"matches": User.query(User.university == current_user.university, User.name != current_user.name).fetch()}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(test_dict))
 
