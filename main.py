@@ -4,7 +4,6 @@ import os
 from google.appengine.api import users
 from models import User
 from models import Interest
-from models import University
 
 jinja_current_directory = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
