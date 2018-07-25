@@ -25,7 +25,7 @@ def get_logged_in_user(request_handler):
             'log_in_url' : users.create_login_url('/')
         }
         # put that Google log-in link on the page and get them in!
-        log_in_template = jinja_current_directory('templates/login-page.html')
+        log_in_template = jinja_current_directory.get_template('templates/login-page.html')
         request_handler.response.write(log_in_template.render(dict))
         print 'transaction halted because user is not logged in'
         return None
