@@ -21,11 +21,19 @@
       <div>
         {% for item in matches %}<br>
         <div id="person">
-          <h3 id='name'>{{item.name}}</h3>
-          <h3 id="email">{{item.email}}</h3>
-          <h3 id="social_media">{{item.social_media}}</h3>
-          <h3 id="major">{{item.major}}</h3>
-          <h3 id="interests">interests: {{item.interests}}</h3>
+          <p id='name'>{{item.name}}</p>
+          <p id="email">{{item.email}}</p>
+          <p id="social_media">{{item.social_media}}</p>
+          <p id="major">{{item.major}}</p>
+          <p id="interests">interests:
+            {% for interest in item.interests %}
+              {% if loop.index != item.interests|length %}
+                {{interest.name}},
+              {% else %}
+                {{interest.name}}
+              {% endif %}
+            {% endfor %}
+          </p>
         </div>
         {% endfor %}
       </div>
