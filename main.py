@@ -118,11 +118,11 @@ class LoginPage(webapp2.RequestHandler):
             name=self.request.get("first_name") + " " + self.request.get("last_name")
             )
         our_user.put()
-        self.response.write('Thanks for signing up, %s!' %
-            our_user.name)
+        wel_dict = {'welcome': 'Thanks for signing up, %s!' %
+            our_user.name}
 
         home_template = jinja_current_directory.get_template('templates/home-page.html')
-        self.response.write(home_template.render())
+        self.response.write(home_template.render(wel_dict))
 
             # need to figure out how we're doing interests
             # do they already exist? How do I get those interest objects made
@@ -187,7 +187,7 @@ class PeoplePage(webapp2.RequestHandler):
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         if not current_user.university:
-            people_temp_dict = {'Error' : "ERROR fill out form first!"}
+            people_temp_dict = {'Error' : "Oops - please fill out profile form first to find your matches!"}
             self.response.write(people_template.render(people_temp_dict))
             return None
 
@@ -219,7 +219,6 @@ class PeoplePage(webapp2.RequestHandler):
         match_dict = {'matches': interest_matches, 'logout_link' : users.create_logout_url('/')}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(match_dict))
-
 
 app = webapp2.WSGIApplication([
     ('/', StartPage),

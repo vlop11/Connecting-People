@@ -34,6 +34,13 @@ html {
   font-family: helvetica;
 }
 
+#error {
+  text-align: center;
+  font-family: helvetica;
+  font-weight: lighter;
+  color: red;
+}
+
 #people-text {
   text-align: center;
   font-size: 28pt;
