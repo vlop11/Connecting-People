@@ -147,7 +147,7 @@ class FormPage(webapp2.RequestHandler):
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media")
-        interest_in_form = self.request.get("interest_title")
+        interest_in_form = self.request.get("interests", allow_multiple=True)
         # image_in_form = self.request.get("image")
 
         # our_user is the existing_user
@@ -158,7 +158,7 @@ class FormPage(webapp2.RequestHandler):
         our_user.age = age_in_form
         our_user.major = major_in_form
         our_user.social_media = social_media_in_form
-        our_user.interest = interest_in_form
+        our_user.interests = interest_in_form
         # our_user.image = image_in_form
 
         # save those changes to our_user values
