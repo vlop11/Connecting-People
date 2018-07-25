@@ -32,7 +32,7 @@
 h3 {
   font-family: helvetica;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 html {
@@ -72,6 +72,7 @@ input[type=submit] {
 #submit_cont {
   padding-bottom: 20px;
 }
+
 input[type=submit]:hover {
     background-color: #99bfb3;
 }
@@ -97,6 +98,11 @@ input[type=checkbox] {
   font-size: 12pt;
 }
 
+#picture {
+  font-size: 10pt;
+  width: 200px;
+  padding-bottom: 10px;
+}
 /* #fireworks {
     position: fixed;
     right: 0;
