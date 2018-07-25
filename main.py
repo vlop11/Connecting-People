@@ -46,9 +46,6 @@ def get_logged_in_user(request_handler):
     # now we can easily access their information
     return existing_user
 
-def get_log_out_link():
-    pass
-
 class StartPage(webapp2.RequestHandler):
     def get(self):
         start_template = \
@@ -60,8 +57,8 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = \
                 jinja_current_directory.get_template('templates/home-page.html')
-        signout_link = users.create_logout_url('/')
-        self.response.write(home_template.render())
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        self.response.write(home_template.render(log_out_dict))
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
@@ -84,7 +81,7 @@ class LoginPage(webapp2.RequestHandler):
 
             # if the user is logged in to both Google and us
             if our_site_user:
-                sign_out_dict = {'signout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
+                sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
                 home_template = \
                     jinja_current_directory.get_template('templates/home-page.html')
                 self.response.write(home_template.render(sign_out_dict))
@@ -136,7 +133,8 @@ class FormPage(webapp2.RequestHandler):
     def get(self):
         form_template = \
             jinja_current_directory.get_template('templates/form-and-profile-page.html')
-        self.response.write(form_template.render())
+            log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        self.response.write(form_template.render(log_out_dict))
     def submit_form(request):
         if request.method == 'POST':
             form = Form(request.POST)
@@ -178,7 +176,9 @@ class FormPage(webapp2.RequestHandler):
         # save those changes to our_user values
         our_user.put()
 
-        self.response.write(form_template.render())
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+
+        self.response.write(form_template.render(log_out_dict))
 
 
 class PeoplePage(webapp2.RequestHandler):
