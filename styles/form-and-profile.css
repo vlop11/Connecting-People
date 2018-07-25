@@ -12,6 +12,7 @@
   padding-left: 20px;
   font-weight: lighter;
   font-family: helvetica;
+  color: black;
 }
 
 /* #padding {
@@ -47,7 +48,7 @@ select {
 
 .container {
     border-radius: 10px;
-    background-color: #e8c4b6d9;
+    background-color: #cbc6c5b0;
     /* display: flex;
     vertical-align: middle; */
     width: 900px;
@@ -61,7 +62,7 @@ select {
 }
 
 input[type=submit] {
-    background-color: #fdd58a;
+    background-color: #50708aad;
     color: black;
     padding: 12px 20px;
     border: none;
@@ -74,7 +75,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
+<<<<<<< HEAD
+    background-color: #374d5f9e;
+=======
   background-color: #c39e57;}
+>>>>>>> b87dfb5c8ea7050c5f4e02fb8c9e43783fc2f7b2
 }
 .options {
   font-size: 10pt;
@@ -109,3 +114,11 @@ input[type=checkbox] {
     min-width: 100%;
     min-height: 100%;
 } */
+
+.buttons a {
+  float: right;
+  padding: 14px 17px;
+  color: black;
+  font-family: helvetica;
+  font-weight: lighter;
+}
