@@ -1,5 +1,5 @@
-var limit = 3
+// do not let more than 3 boxes be checked
 
-// rename button_class
-// var button_class = document.getElementsByClassName('class_name') // this generates a list
-// console.log(button_class)
+var limit = 3;
+
+get
