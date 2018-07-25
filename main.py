@@ -82,8 +82,6 @@ class LoginPage(webapp2.RequestHandler):
             # if the user is logged in to both Google and us
             if our_site_user:
                 sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
-                login_template = \
-                    jinja_current_directory.get_template('templates/login-page.html')
                 self.response.write(login_template.render(sign_out_dict))
 
               # If the user is logged into Google but never been to us before..
@@ -97,8 +95,7 @@ class LoginPage(webapp2.RequestHandler):
                 #  <input type="submit">
                 #  </form><br> %s <br>
                 #  ''' % (email_address, signout_link_html))
-                log_in_template = jinja_current_directory.get_template('templates/login-page.html')
-                self.response.write(log_in_template.render())
+                self.response.write(login_template.render())
 
         # Otherwise, the user isn't logged in to Google or us!
         else:
