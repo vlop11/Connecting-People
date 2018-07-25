@@ -33,7 +33,15 @@
         </div>
         <div>
           <h3 id="social_media">{{item.social_media}}</h3>
-          <h3 id="interests">interests: {{item.interests}}</h3>
+          <h3 id="interests">Interests:
+            {% for interest in item.interests %}
+              {% if loop.index != item.interests|length %}
+                {{interest.name}},
+              {% else %}
+                {{interest.name}}
+              {% endif %}
+            {% endfor %}
+          </h3>
         </div>
       </li>
       {% endfor %}
