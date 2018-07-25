@@ -81,23 +81,25 @@ class LoginPage(webapp2.RequestHandler):
             # if the user is logged in to both Google and us
             if our_site_user:
                 sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
-                home_template = \
-                    jinja_current_directory.get_template('templates/home-page.html')
-                self.response.write(home_template.render(sign_out_dict))
+                login_template = \
+                    jinja_current_directory.get_template('templates/login-page.html')
+                self.response.write(login_template.render(sign_out_dict))
 
               # If the user is logged into Google but never been to us before..
               # if we want to fix OUR login page, this is where
             else:
-                self.response.write('''
-                 Welcome to our site, %s!  Please sign up! <br>
-                 <form method="post" action="/login">
-                 <input type="text" name="first_name">
-                 <input type="text" name="last_name">
-                 <input type="submit">
-                 </form><br> %s <br>
-                 ''' % (email_address, signout_link_html))
+                # self.response.write('''
+                #  Welcome to our site, %s!  Please sign up! <br>
+                #  <form method="post" action="/login">
+                #  <input type="text" name="first_name">
+                #  <input type="text" name="last_name">
+                #  <input type="submit">
+                #  </form><br> %s <br>
+                #  ''' % (email_address, signout_link_html))
+                log_in_template = jinja_current_directory.get_template('templates/login-page.html')
+                self.response.write(log_in_template.render())
 
-            # Otherwise, the user isn't logged in to Google or us!
+        # Otherwise, the user isn't logged in to Google or us!
         else:
             self.response.write('''
                 Please log in to use our site! <br>

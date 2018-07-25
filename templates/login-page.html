@@ -6,7 +6,6 @@
   </head>
 
   <body>
-    <h1> log-in here {{log_in_url}}</h1>
     <div id="header">
       <h1 id="title">U-REACH</h1>
     </div>
@@ -14,10 +13,10 @@
     </div>
     <div id="loginBox">
       <h3 id="login-title">Login</h3>
-      <form id="login-form">
-        <input type="text" placeholder="username"><br><br>
-        <input type="text" placeholder="password"><br><br>
-        <input type="submit" value="Login">
+      <form id="login-form" method="post">
+        <input name ="first_name" type="text" placeholder="first name"><br><br>
+        <input name ="last_name" type="text" placeholder="last name"><br><br>
+        <input type="submit" value="Submit">
       </form>
     </div>
   </body>
