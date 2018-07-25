@@ -155,6 +155,10 @@ class FormPage(webapp2.RequestHandler):
         interest_in_form_array = self.request.get("interests", allow_multiple=True)
         image_in_form = self.request.get("image")
 
+        print("\n\n\n\n\n\n\n\n\n")
+        print(image_in_form)
+        print("\n\n\n\n\n\n\n\n\n")
+
         # convert the string array into an array of Interest Objects
         array_of_interest_objs = []
         for interest in interest_in_form_array:
@@ -171,7 +175,7 @@ class FormPage(webapp2.RequestHandler):
         our_user.major = major_in_form
         our_user.social_media = social_media_in_form
         our_user.interests = array_of_interest_objs
-        our_user.image = image_in_form
+        # our_user.image = image_in_form
 
         # save those changes to our_user values
         our_user.put()
