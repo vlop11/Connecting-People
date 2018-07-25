@@ -29,3 +29,11 @@
   font-family: helvetica;
   font-weight: lighter;
 }
+
+#wel_message {
+  text-align: center;
+  font-family: helvetica;
+  font-weight: lighter;
+  color: white;
+  font-size: 30pt;
+}
