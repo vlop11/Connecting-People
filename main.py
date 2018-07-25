@@ -4,6 +4,7 @@ import os
 from google.appengine.api import users
 from models import User
 from models import Interest
+import os.path
 
 jinja_current_directory = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -153,11 +154,10 @@ class FormPage(webapp2.RequestHandler):
 
         # this gets me an array of strings, where each string is a value
         interest_in_form_array = self.request.get("interests", allow_multiple=True)
-        image_in_form = self.request.get("image")
 
-        print("\n\n\n\n\n\n\n\n\n")
-        print(image_in_form)
-        print("\n\n\n\n\n\n\n\n\n")
+        # image is caught
+        image_in_form = self.request.get("image")
+        # image is saved to a specific file (aka /images)
 
         # convert the string array into an array of Interest Objects
         array_of_interest_objs = []
