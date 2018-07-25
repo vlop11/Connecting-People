@@ -50,6 +50,7 @@ select {
     /* display: flex;
     justify-content: center; */
     width: 800px;
+    height: 650px;
     margin: auto;
     overflow-y: scroll;
     text-align: center;

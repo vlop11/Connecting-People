@@ -171,7 +171,7 @@ class FormPage(webapp2.RequestHandler):
         our_user.age = age_in_form
         our_user.major = major_in_form
         our_user.social_media = social_media_in_form
-        our_user.interest = array_of_interest_objs
+        our_user.interests = array_of_interest_objs
 
         # our_user.image = image_in_form
 
