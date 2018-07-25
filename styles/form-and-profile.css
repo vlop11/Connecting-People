@@ -48,11 +48,7 @@ select {
 
 .container {
     border-radius: 10px;
-<<<<<<< HEAD
     background-color: #cbc6c5b0;
-=======
-    background-color: #e8c4b6d9;
->>>>>>> b87dfb5c8ea7050c5f4e02fb8c9e43783fc2f7b2
     /* display: flex;
     vertical-align: middle; */
     width: 900px;
