@@ -102,7 +102,7 @@ class LoginPage(webapp2.RequestHandler):
         # Otherwise, the user isn't logged in to Google or us!
         else:
             self.response.write('''
-                Please log in to use our site! <br>
+                Please log in to Google use our site! <br>
                 <a href="%s">Sign in</a>''' % (
                   users.create_login_url('/')))
 
