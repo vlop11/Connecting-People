@@ -43,7 +43,7 @@ class User(ndb.Model):
                 # and since that interest is matched, it likely won't match again
                 # after all, who writes "beating dogs" for TWO out of their three interests?
                 # only pathetic people, and we won't try to recommend them
-                if each_interst.name == each_other_interest.name:
+                if each_interest.name == each_other_interest.name:
                     count += 1
                     found_yet = True
         # return your common-interest index!

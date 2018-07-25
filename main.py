@@ -193,9 +193,32 @@ class PeoplePage(webapp2.RequestHandler):
 
         # get list of all university matches
         uni_matches = User.query(User.university == current_user.university, User.email != current_user.email).fetch()
-        test_dict = {'matches': uni_matches, 'logout_link' : users.create_logout_url('/')}
+        interest_matches = []
+        no_interest_matches = []
+
+        # here's where I sort the uni matches
+        for other_user in uni_matches:
+            similarity_index = current_user.compare_interests(other_user)
+            if(similarity_index >= 3):
+                interest_matches.insert(0, other_user)
+            elif similarity_index == 2:
+                interest_matches.insert(int(len(interest_matches)/2), other_user)
+            elif similarity_index == 1:
+                interest_matches.append(other_user)
+            elif similarity_index == 0:
+                no_interest_matches.append(other_user)
+
+        # If the array is too short, add the rest of the uni matches
+        # if len(interest_matches) < 20:
+        #     interest_matches.extend(no_interest_matches)
+
+        # now it's time to trim it so there's a max 20 recommended users
+        # cut it off - because the best ones will be in the front!
+        interest_matches = interest_matches[:20]
+
+        match_dict = {'matches': interest_matches, 'logout_link' : users.create_logout_url('/')}
         # render matches into the html (or it should anyway)
-        self.response.write(people_template.render(test_dict))
+        self.response.write(people_template.render(match_dict))
 
 
 app = webapp2.WSGIApplication([
