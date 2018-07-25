@@ -26,6 +26,7 @@
   padding-bottom: 15px;
   border-bottom-style: dashed;
   border-width: thin;
+  font-size: 26pt;
 }
 
 h3 {
@@ -43,14 +44,14 @@ select {
   background-color: white;
   cursor: pointer;
 }
+
 .container {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #ffe8eb;
-    padding: 20px;
     /* display: flex;
-    justify-content: center; */
-    width: 800px;
-    height: 700px;
+    vertical-align: middle; */
+    width: 900px;
+    height: 750px;
     margin: auto;
     overflow-y: scroll;
     text-align: center;
@@ -58,6 +59,7 @@ select {
     font-family: helvetica;
     font-weight: lighter;
 }
+
 input[type=submit] {
     background-color: #c3f9e8;
     color: black;
@@ -66,9 +68,18 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+
+#submit_cont {
+  padding-bottom: 20px;
+}
 input[type=submit]:hover {
     background-color: #99bfb3;
 }
+
+.options {
+  font-size: 10pt;
+}
+
 input[type=text], select, textarea {
     width: 500px;; /* Full width */
     padding: 12px; /* Some padding */
@@ -84,6 +95,7 @@ input[type=checkbox] {
   font-family: helvetica;
   font-weight: lighter;
   font-size: 12pt;
+}
 
 /* #fireworks {
     position: fixed;
