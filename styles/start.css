@@ -30,14 +30,14 @@
   justify-content: center;
 } */
 
-.navbutton {
+/* .navbutton {
   padding-top: 15px;
   font-size: 14pt;
   color: black;
   font-family: helvetica;
   font-weight: lighter;
   padding: 14px 17px;
-}
+} */
 
 #outer-box {
   max-width: 400px;
@@ -47,7 +47,7 @@
   margin: auto;
   display: flex;
   align-items: center;
-  background-color: #ffffff52;
+  background-color: #ffffff85;
   justify-content: space-between;
 }
 

@@ -26,6 +26,7 @@
   padding-bottom: 15px;
   border-bottom-style: dashed;
   border-width: thin;
+  font-size: 26pt;
 }
 
 h3 {
@@ -44,13 +45,12 @@ select {
   cursor: pointer;
 }
 .container {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #ffe8eb;
-    padding: 20px;
     /* display: flex;
-    justify-content: center; */
-    width: 800px;
-    height: 700px;
+    vertical-align: middle; */
+    width: 900px;
+    height: 750px;
     margin: auto;
     overflow-y: scroll;
     text-align: center;
@@ -69,6 +69,11 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #99bfb3;
 }
+
+.options {
+  font-size: 10pt;
+}
+
 input[type=text], select, textarea {
     width: 500px;; /* Full width */
     padding: 12px; /* Some padding */
