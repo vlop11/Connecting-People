@@ -41,7 +41,7 @@
   margin: auto;
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: #ffffff52;
   justify-content: space-between;
 }
 
@@ -50,6 +50,7 @@
   font-family: helvetica;
   font-weight: lighter;
   font-size: 24pt;
+  opacity: 10;
 }
 
 /* .fullscreen_image {
@@ -79,7 +80,7 @@ body {
   /* overflow attempts start here
   overflow: scroll;
   overflow-x: hidden;
-  /* position: absolute;
+  position: absolute;
   top:0;
   left:0;
   width: 100%;
