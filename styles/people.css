@@ -49,6 +49,7 @@ html {
   /* padding-top: 15px; */
   border-bottom-style: dashed;
   padding-bottom: 25px;
+  margin-bottom: 0;
 }
 
 #people {
@@ -67,10 +68,27 @@ html {
 }
 .member-item {
   display: flex;
+  align-items: center;
+  padding-left: 35px;
+  padding-bottom: 15px;
+  border-bottom-style: solid;
+  border-width: thin;
+  border-color: lightgrey;
 }
 .member-item-info {
   flex-grow: 1;
+  padding-left: 15px;
 }
+#name {
+  font-weight: bolder;
+  font-size: 18pt;
+  padding-right: 10px;
+}
+#col2 {
+  padding-right: 120px;
+  overflow-x: scroll;
+}
+
 img {
   width: 80px;
   height: 80px;
