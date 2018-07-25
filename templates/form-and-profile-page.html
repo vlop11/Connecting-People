@@ -18,7 +18,7 @@
       <h2 id="forms_header"> tell us about yourself.</h2><br>
       <form method="post">
         <h3 id="school-title">School</h3>
-        <select name="schools">
+        <select class="options" name="schools">
           <option value="Georgia Institute of Technology">Georgia Institute of Technology</option>
           <option value="Georgia State University">Georgia State University</option>
           <option value="Emory University">Emory University</option>
@@ -27,7 +27,7 @@
         </select>
 
         <h3 id="age-title">Age</h3>
-        <select name="ages">
+        <select class="options" name="ages">
           <option value="16">16</option>
           <option value="17">17</option>
           <option value="18">18</option>
@@ -42,7 +42,7 @@
         </select>
 
         <h3 id="major-title">Major</h3>
-        <select name="majors">
+        <select class="options" name="majors">
           <option value="Business">Business Administration</option>
           <option value="Psychology">Psychology</option>
           <option value="Nursing">Nursing</option>
@@ -57,10 +57,10 @@
           <option value="Engineering">Engineering</option>
         </select>
         <h3 id="social_media_title">Social Media URL</h3>
-        <input name="social_media" type="text" placeholder="url"><br>
+        <input style="font-size: 10pt;" name="social_media" type="text" placeholder="url"><br>
 
         <h3>Image URL</h3>
-        <input name="image" type="text" placeholder="url"><br>
+        <input name="image" type="file" accept="image/png, image/jpeg" >
 
           <!-- Use a check-box type for grabbing the interests -->
         <h3 id="interest_title" class = "interest_form">Interests</h3>
@@ -69,7 +69,9 @@
         <input type="checkbox" name="interests" value="reading">reading<br>
         <input type="checkbox" name="interests" value="hiking">hiking<br>
         <input type="checkbox" name="interests" value="singing">singing<br><br>
-        <input type="submit" value="submit">
+        <div id="submit_cont">
+          <input type="submit" value="submit">
+        </div>
       </form>
     </div>
   </body>
