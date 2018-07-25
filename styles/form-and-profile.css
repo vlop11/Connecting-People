@@ -1,21 +1,31 @@
 #header {
-  text-align: center;
   font-family: helvetica;
+  /* border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: #e6e6e6; */
+  margin: auto;
+  height: 60px;
 }
 
 #title {
   font-size: 36pt;
   letter-spacing: 5px;
+  font-weight: lighter;
 }
 
-#padding {
+/* #padding {
   height: 150px;
   width: auto;
-}
+} */
+
 #forms_header {
   text-align: center;
   font-family: helvetica;
   font-weight: lighter;
+  padding-bottom: 15px;
+  border-bottom-style: dashed;
+  border-width: thin;
 }
 
 h3 {
@@ -24,12 +34,10 @@ h3 {
   font-size: 16px;
 }
 
-body {
-  background-color: #c3f9e8;
-  text-align: center;
-
+html {
+  background: url("../images/bank.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
-
 
 select {
   background-color: white;
@@ -41,7 +49,13 @@ select {
     padding: 20px;
     /* display: flex;
     justify-content: center; */
+    width: 800px;
+    margin: auto;
+    overflow-y: scroll;
+    text-align: center;
     /* text-align: justify; */
+    font-family: helvetica;
+    font-weight: lighter;
 }
 input[type=submit] {
     background-color: #c3f9e8;
@@ -55,7 +69,7 @@ input[type=submit]:hover {
     background-color: #99bfb3;
 }
 input[type=text], select, textarea {
-    width: 50%; /* Full width */
+    width: 500px;; /* Full width */
     padding: 12px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
@@ -64,17 +78,16 @@ input[type=text], select, textarea {
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
-<<<<<<< HEAD
 
 input[type=checkbox] {
   font-family: helvetica;
   font-weight: lighter;
-=======
-#fireworks {
+  font-size: 12pt;
+
+/* #fireworks {
     position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
->>>>>>> efaa9222ee1b520b889a02abac185e1f7583e7e8
-}
+} */
