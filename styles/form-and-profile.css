@@ -64,8 +64,17 @@ input[type=text], select, textarea {
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
+<<<<<<< HEAD
 
 input[type=checkbox] {
   font-family: helvetica;
   font-weight: lighter;
+=======
+#fireworks {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+>>>>>>> efaa9222ee1b520b889a02abac185e1f7583e7e8
 }

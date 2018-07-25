@@ -1,44 +1,72 @@
 #header {
-  font-family: helvetica;
+  /* font-family: helvetica;
   border-style: solid;
   border-width: 2px;
   border-color: black;
   background-color: #e6e6e6;
   width: 800px;
-  margin: auto;
+  margin: auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+}
+.container {
+  max-width: 1500px;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  /* margin:auto; */
 }
 
-#login-header {
+/* #login-header {
   display: flex;
   justify-content: center;
-}
+} */
 
 .navbutton {
   padding-top: 15px;
   font-size: 14pt;
-  color: white;
+  color: black;
   font-family: helvetica;
   font-weight: lighter;
   padding: 14px 17px;
 }
 
 #outer-box {
-  width: 800px;
-  height: 500px;
+  max-width: 400px;
+  height: 200px;
   border-style: solid;
   border-color: black;
   margin: auto;
   display: flex;
   align-items: center;
   background-color: white;
+  justify-content: space-between;
 }
 
 #slogan {
   text-align: center;
   font-family: helvetica;
   font-weight: lighter;
-  font-size: 36pt;
+  font-size: 24pt;
 }
+
+/* .fullscreen_image {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  min-width: 10%;
+  min-height: 10%;
+
+}
+
+#bofa {
+  min-width: 10%;
+  min-height: 10%;
+} */
 
 body {
   background: url("../images/bank.jpg") no-repeat center center fixed;
@@ -46,6 +74,20 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+  overflow-x: hidden;
+  /* overflow attempts start here
+  overflow: scroll;
+  overflow-x: hidden;
+  /* position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; */
+}
+section {
+  overflow: scroll;
 }
 
 /* .footer {
@@ -64,69 +106,12 @@ body {
   font-size: 36pt;
   letter-spacing: 5px;
   text-align: center;
+  padding-left: 20px;
   font-weight: lighter;
+  font-family: helvetica;
 }
 
 #padding {
   height: 70px;
   width: auto;
 }
-
-/* #header {
-  font-family: helvetica;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  background-color: #e6e6e6;
-  width: 800px;
-  margin: auto;
-}
-
-#login-header {
-  display: flex;
-  justify-content: center;
-}
-
-.navbutton {
-  padding-top: 15px;
-  font-size: 14pt;
-  color: white;
-  font-family: helvetica;
-  font-weight: lighter;
-  padding: 14px 17px;
-}
-
-#outer-box {
-  width: 800px;
-  height: 500px;
-  border-style: solid;
-  border-color: black;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-
-#slogan {
-  text-align: center;
-  font-family: helvetica;
-  font-weight: lighter;
-  font-size: 36pt;
-}
-
-body {
-  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
-  background-size: cover;
-}
-
-#title {
-  font-size: 36pt;
-  letter-spacing: 5px;
-  text-align: center;
-  font-weight: lighter;
-}
-
-#padding {
-  height: 70px;
-  width: auto;
-} */
