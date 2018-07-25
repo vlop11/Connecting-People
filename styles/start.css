@@ -12,6 +12,12 @@
   flex-wrap: nowrap;
 
 }
+#sign_in_button {
+  height: auto;
+  width: auto;
+  padding: 0;
+  border: None;
+}
 .container {
   max-width: 1500px;
   padding-left: .5rem;
