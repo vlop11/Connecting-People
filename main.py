@@ -133,7 +133,7 @@ class FormPage(webapp2.RequestHandler):
     def get(self):
         form_template = \
             jinja_current_directory.get_template('templates/form-and-profile-page.html')
-            log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
         self.response.write(form_template.render(log_out_dict))
     def submit_form(request):
         if request.method == 'POST':
