@@ -1,43 +1,47 @@
 #header {
-  font-family: helvetica;
+  /* font-family: helvetica;
   border-style: solid;
   border-width: 2px;
   border-color: black;
   background-color: #e6e6e6;
   width: 800px;
-  margin: auto;
+  margin: auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#login-header {
+/* #login-header {
   display: flex;
   justify-content: center;
-}
+} */
 
 .navbutton {
   padding-top: 15px;
   font-size: 14pt;
-  color: white;
+  color: black;
   font-family: helvetica;
   font-weight: lighter;
   padding: 14px 17px;
 }
 
 #outer-box {
-  width: 800px;
-  height: 500px;
+  width: 400px;
+  height: 200px;
   border-style: solid;
   border-color: black;
   margin: auto;
   display: flex;
   align-items: center;
   background-color: white;
+  justify-content: space-between;
 }
 
 #slogan {
   text-align: center;
   font-family: helvetica;
   font-weight: lighter;
-  font-size: 36pt;
+  font-size: 24pt;
 }
 
 body {
@@ -64,69 +68,12 @@ body {
   font-size: 36pt;
   letter-spacing: 5px;
   text-align: center;
+  padding-left: 20px;
   font-weight: lighter;
+  font-family: helvetica;
 }
 
 #padding {
   height: 70px;
   width: auto;
 }
-
-/* #header {
-  font-family: helvetica;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  background-color: #e6e6e6;
-  width: 800px;
-  margin: auto;
-}
-
-#login-header {
-  display: flex;
-  justify-content: center;
-}
-
-.navbutton {
-  padding-top: 15px;
-  font-size: 14pt;
-  color: white;
-  font-family: helvetica;
-  font-weight: lighter;
-  padding: 14px 17px;
-}
-
-#outer-box {
-  width: 800px;
-  height: 500px;
-  border-style: solid;
-  border-color: black;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-
-#slogan {
-  text-align: center;
-  font-family: helvetica;
-  font-weight: lighter;
-  font-size: 36pt;
-}
-
-body {
-  background: url("https://images.pexels.com/photos/597909/pexels-photo-597909.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260") no-repeat center center fixed;
-  background-size: cover;
-}
-
-#title {
-  font-size: 36pt;
-  letter-spacing: 5px;
-  text-align: center;
-  font-weight: lighter;
-}
-
-#padding {
-  height: 70px;
-  width: auto;
-} */
