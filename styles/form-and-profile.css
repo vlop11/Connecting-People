@@ -47,11 +47,11 @@ select {
 
 .container {
     border-radius: 10px;
-    background-color: #e8c4b6ad;
+    background-color: #e8c4b6d9;
     /* display: flex;
     vertical-align: middle; */
     width: 900px;
-    height: 750px;
+    height: 700px;
     margin: auto;
     overflow-y: scroll;
     text-align: center;
@@ -74,9 +74,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #c39e57;
+  background-color: #c39e57;}
 }
-
 .options {
   font-size: 10pt;
 }
