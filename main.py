@@ -86,6 +86,7 @@ class LoginPage(webapp2.RequestHandler):
                 self.response.write(home_template.render(sign_out_dict))
 
               # If the user is logged into Google but never been to us before..
+              # if we want to fix OUR login page, this is where
             else:
                 self.response.write('''
                  Welcome to our site, %s!  Please sign up! <br>

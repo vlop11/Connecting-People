@@ -12,7 +12,7 @@ class User(ndb.Model):
     name = ndb.StringProperty()
 
     # user's email MUST be entered when it is created, and it goes here
-    email = ndb.StringProperty(required=True)
+    email = ndb.StringProperty()
 
     social_media = ndb.StringProperty()
     #the image location will be entered here
