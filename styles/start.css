@@ -52,20 +52,42 @@
   font-size: 24pt;
 }
 
+/* .fullscreen_image {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100vh;
+  min-width: 10%;
+  min-height: 10%;
+
+}
+
+#bofa {
+  min-width: 10%;
+  min-height: 10%;
+} */
+
 body {
   background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* overflow attempts start here */
+  overflow: scroll;
   overflow-x: hidden;
-  position: absolute;
+  /* overflow attempts start here
+  overflow: scroll;
+  overflow-x: hidden;
+  /* position: absolute;
   top:0;
   left:0;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; */
+}
+section {
+  overflow: scroll;
 }
 
 /* .footer {
