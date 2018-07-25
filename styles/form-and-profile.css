@@ -47,7 +47,7 @@ select {
 
 .container {
     border-radius: 10px;
-    background-color: #ffe8eb;
+    background-color: #e8c4b6ad;
     /* display: flex;
     vertical-align: middle; */
     width: 900px;
@@ -61,7 +61,7 @@ select {
 }
 
 input[type=submit] {
-    background-color: #c3f9e8;
+    background-color: #fdd58a;
     color: black;
     padding: 12px 20px;
     border: none;
@@ -74,7 +74,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #99bfb3;
+    background-color: #c39e57;
 }
 
 .options {
