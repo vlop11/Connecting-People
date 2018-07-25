@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>People Page</title>
-    <link rel="stylesheet" type="text/css" href="../styles/people.css">
-  </head>
-  <style>A {text-decoration: none;} </style>
-  <body>
-    <div id="header">
-      <h1 id="title">U-REACH</h1>
-      <div class="buttons">
-        <a class="navbutton" href={{logout_link}}>Logout</a>
-        <a class="navbutton" href='/home'>Home</a>
-        <a class="navbutton" href='/form'>Profile</a>
-      </div>
+<head>
+  <title>People Page</title>
+  <link rel="stylesheet" type="text/css" href="../styles/people.css">
+</head>
+<style>A {text-decoration: none;} </style>
+<body>
+  <div id="header">
+    <h1 id="title">U-REACH</h1>
+    <div class="buttons">
+      <a class="navbutton" href={{logout_link}}>Logout</a>
+      <a class="navbutton" href='/home'>Home</a>
+      <a class="navbutton" href='/form'>Profile</a>
     </div>
-    <h2>{{Error}}</h2>
-    <br><br>
-    <div id="people">
-      <h3 id="people-text">people to hang with!</h3>
-      <div>
-        {% for item in matches %}<br>
-        <div id="person">
-          <h3 id='name'>{{item.name}}</h3>
-          <h3 id="email">{{item.email}}</h3>
+  </div>
+  <h2>{{Error}}</h2>
+  <br><br>
+  <div id="people">
+    <h3 id="people-text">people to hang with!</h3>
+    <ul class="member-list">
+      {% for item in matches %}<br>
+      <li class="member-item">
+        <div>
+          <img class="profile-image" src="https://img00.deviantart.net/0d42/i/2015/016/b/5/batman_headshot_by_josephmichaeldavis-d8e6den.png">
+        </div>
+        <div class="member-item-info">
+          <div class="member-item-personal-info">
+            <span> {{item.name}}</span>
+            <span>{{item.email}}</span>
+          </div>
+          <h3>{{item.major}}</h3>
+        </div>
+        <div>
           <h3 id="social_media">{{item.social_media}}</h3>
-          <h3 id="major">{{item.major}}</h3>
           <h3 id="interests">interests: {{item.interests}}</h3>
         </div>
-        {% endfor %}
-      </div>
-  </body>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
 
 </html>
