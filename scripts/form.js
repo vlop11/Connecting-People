@@ -6,8 +6,8 @@ var checkbox_list = checkbox_parent.children;
 
 // element.value will get me those values that I need to be the keys to my dictionary!
 //
-console.log(checkbox_parent);
-console.log(checkbox_list);
+// console.log(checkbox_parent);
+// console.log(checkbox_list);
 
 checkbox_list[0].value
 //
@@ -24,6 +24,7 @@ var dictionary = {}
 //
 // // .checked
 
+const 
 
 // var point = { x:3, y:2 };
 //

@@ -4,13 +4,18 @@
     <title>Form and Profile Page</title>
     <link rel="stylesheet" type="text/css" href="../styles/form-and-profile.css">
   </head>
+  <style>A {text-decoration: none;} </style>
   <body>
     <!-- initial way to put in vid -->
     <!-- <video autoplay muted loop id="fireworks">
       <source src="../videos/fireworks.mp4" type="video/mp4">
     </video> -->
     <div id="header">
-      <h1 id="title">U-REACH</h1>
+      <a id="title" href="/home">U-REACH</a>
+      <div class="buttons">
+        <a class="navbutton" href={{logout_link}}>Logout</a>
+        <a class="navbutton" href='/people'>Matched</a>
+      </div>
     </div>
     <div id="padding">
     </div>
@@ -59,10 +64,11 @@
 
         <h3 id="social_media_title">Social Media URL</h3>
         <input style="font-size: 10pt;" name="social_media" type="text" placeholder="url"><br>
-
-        <h3>Profile Picture</h3>
-        <input id="picture" name="image" type="file" accept="image/png, image/jpeg" >
-
+        <div>
+          <h3>Profile Picture</h3>
+          <input id="picture" name="image" type="file" accept="image/png, image/jpeg" >
+          <input type="submit" value="submit photo">
+        </div>
           <!-- Use a check-box type for grabbing the interests -->
         <h3 id="interest_title" class = "interest_form">Interests</h3>
         <input type="checkbox" name="interests" value="photography">photography<br>
