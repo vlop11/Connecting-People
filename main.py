@@ -50,7 +50,6 @@ class StartPage(webapp2.RequestHandler):
     def get(self):
         start_template = \
                 jinja_current_directory.get_template('templates/start-page.html')
-        current_user = get_logged_in_user(self)
         self.response.write(start_template.render())
 
 class HomePage(webapp2.RequestHandler):
