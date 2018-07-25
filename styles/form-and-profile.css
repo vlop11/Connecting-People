@@ -74,13 +74,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-<<<<<<< HEAD
-  background-color: #99bfb3;
-=======
-    background-color: #c39e57;
->>>>>>> 1e3360b7df893706a4b5a2fc254a1ce376acab35
+  background-color: #c39e57;}
 }
-
 .options {
   font-size: 10pt;
 }
