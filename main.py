@@ -25,7 +25,7 @@ def get_logged_in_user(request_handler):
             'log_in_url' : users.create_login_url('/')
         }
         # put that Google log-in link on the page and get them in!
-        log_in_template = jinja_current_directory('templates/login-page.html')
+        log_in_template = jinja_current_directory.get_template('templates/login-page.html')
         request_handler.response.write(log_in_template.render(dict))
         print 'transaction halted because user is not logged in'
         return None
@@ -50,14 +50,15 @@ class StartPage(webapp2.RequestHandler):
     def get(self):
         start_template = \
                 jinja_current_directory.get_template('templates/start-page.html')
+        current_user = get_logged_in_user(self)
         self.response.write(start_template.render())
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = \
                 jinja_current_directory.get_template('templates/home-page.html')
-        user = users.get_current_user()
-        self.response.write(home_template.render())
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        self.response.write(home_template.render(log_out_dict))
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
@@ -80,7 +81,7 @@ class LoginPage(webapp2.RequestHandler):
 
             # if the user is logged in to both Google and us
             if our_site_user:
-                sign_out_dict = {'signout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
+                sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
                 home_template = \
                     jinja_current_directory.get_template('templates/home-page.html')
                 self.response.write(home_template.render(sign_out_dict))
@@ -132,7 +133,8 @@ class FormPage(webapp2.RequestHandler):
     def get(self):
         form_template = \
             jinja_current_directory.get_template('templates/form-and-profile-page.html')
-        self.response.write(form_template.render())
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+        self.response.write(form_template.render(log_out_dict))
     def submit_form(request):
         if request.method == 'POST':
             form = Form(request.POST)
@@ -147,8 +149,17 @@ class FormPage(webapp2.RequestHandler):
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media")
-        interest_in_form = self.request.get("interests", allow_multiple=True)
+
+        # this gets me an array of strings, where each string is a value
+        interest_in_form_array = self.request.get("interests", allow_multiple=True)
         # image_in_form = self.request.get("image")
+
+        # convert the string array into an array of Interest Objects
+        array_of_interest_objs = []
+        for interest in interest_in_form_array:
+            this_interest = Interest(name=interest)
+            array_of_interest_objs.append(this_interest)
+            this_interest.put()
 
         # our_user is the existing_user
         our_user = get_logged_in_user(self)
@@ -158,13 +169,16 @@ class FormPage(webapp2.RequestHandler):
         our_user.age = age_in_form
         our_user.major = major_in_form
         our_user.social_media = social_media_in_form
-        our_user.interests = interest_in_form
+        our_user.interests = array_of_interest_objs
+
         # our_user.image = image_in_form
 
         # save those changes to our_user values
         our_user.put()
 
-        self.response.write(form_template.render())
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+
+        self.response.write(form_template.render(log_out_dict))
 
 
 class PeoplePage(webapp2.RequestHandler):
