@@ -46,17 +46,21 @@ def get_logged_in_user(request_handler):
     # now we can easily access their information
     return existing_user
 
+def get_log_out_link():
+    pass
+
 class StartPage(webapp2.RequestHandler):
     def get(self):
         start_template = \
                 jinja_current_directory.get_template('templates/start-page.html')
+        current_user = get_logged_in_user(self)
         self.response.write(start_template.render())
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = \
                 jinja_current_directory.get_template('templates/home-page.html')
-        user = users.get_current_user()
+        signout_link = users.create_logout_url('/')
         self.response.write(home_template.render())
 
 class LoginPage(webapp2.RequestHandler):
@@ -147,8 +151,17 @@ class FormPage(webapp2.RequestHandler):
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
         social_media_in_form = self.request.get("social_media")
-        interest_in_form = self.request.get("interest_title")
+
+        # this gets me an array of strings, where each string is a value
+        interest_in_form_array = self.request.get("interests", allow_multiple=True)
         # image_in_form = self.request.get("image")
+
+        # convert the string array into an array of Interest Objects
+        array_of_interest_objs = []
+        for interest in interest_in_form_array:
+            this_interest = Interest(name=interest)
+            array_of_interest_objs.append(this_interest)
+            this_interest.put()
 
         # our_user is the existing_user
         our_user = get_logged_in_user(self)
@@ -158,7 +171,8 @@ class FormPage(webapp2.RequestHandler):
         our_user.age = age_in_form
         our_user.major = major_in_form
         our_user.social_media = social_media_in_form
-        our_user.interest = interest_in_form
+        our_user.interest = array_of_interest_objs
+
         # our_user.image = image_in_form
 
         # save those changes to our_user values
