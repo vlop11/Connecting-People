@@ -253,7 +253,7 @@ class ImagePage(webapp2.RequestHandler):
         if not img_item:
             return self.error(404)
         img_in_binary = images.Image(img_item.image)
-        img_in_binary.resize(500, 500)
+        img_in_binary.resize(200, 200)
         some_img = img_in_binary.execute_transforms(output_encoding=images.JPEG)
         self.response.headers['Content-Type'] = 'image/jpeg'
         self.response.out.write(some_img)
