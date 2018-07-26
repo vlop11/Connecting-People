@@ -76,8 +76,10 @@ html {
   border-color: lightgrey;
 }
 .member-item-info {
-  flex-grow: 1;
+  /* flex-grow:1; */
   padding-left: 15px;
+  width: 300px;
+  overflow-wrap: normal;
 }
 #name {
   font-weight: bolder;
