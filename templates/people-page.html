@@ -11,7 +11,7 @@
     <div class="buttons">
       <a class="navbutton" href={{logout_link}}>Logout</a>
       <a class="navbutton" href='/home'>Home</a>
-      <a class="navbutton" href='/form'>Profile</a>
+      <a class="navbutton" href='/info_update'>Profile</a>
     </div>
   </div>
   <br><br>
@@ -22,7 +22,7 @@
       {% for item in matches %}
       <li class="member-item">
         <div>
-          <img class="profile-image" src="https://img00.deviantart.net/0d42/i/2015/016/b/5/batman_headshot_by_josephmichaeldavis-d8e6den.png">
+          <img class="profile-image" src={{item.image_url}}>
         </div>
         <div class="member-item-info">
           <div class="member-item-personal-info">

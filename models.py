@@ -6,6 +6,9 @@ class Interest(ndb.Model):
     name = ndb.StringProperty(required=True)    # interest name                ex. League of Legends
     alias = ndb.StringProperty()   # other names for interest                  ex. LoL or LOL
 
+class Image(ndb.Model):
+    image = ndb.BlobProperty()
+
 class User(ndb.Model):
     # user's name will be entered here
     name = ndb.StringProperty()
@@ -15,7 +18,7 @@ class User(ndb.Model):
 
     social_media = ndb.StringProperty()
     #the image location will be entered here
-    image = ndb.StringProperty()
+    image_model = ndb.KeyProperty(kind=Image)
 
     # A list of Interest objects... need to find how they are compared. Will they be separate? Will that matter?
     interests = ndb.StructuredProperty(Interest, repeated = True)

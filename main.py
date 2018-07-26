@@ -2,8 +2,10 @@ import webapp2
 import jinja2
 import os
 from google.appengine.api import users
+from google.appengine.api import images
 from models import User
 from models import Interest
+from models import Image
 import os.path
 
 jinja_current_directory = jinja2.Environment(
@@ -128,12 +130,22 @@ class LoginPage(webapp2.RequestHandler):
             # interests=self.request.get('interests'),
             # university=self.request.get('university'),
 
-class FormPage(webapp2.RequestHandler):
+class InfoUpdatePage(webapp2.RequestHandler):
     def get(self):
         form_template = \
             jinja_current_directory.get_template('templates/form-and-profile-page.html')
-        log_out_dict = {'logout_link' : users.create_logout_url('/')}
-        self.response.write(form_template.render(log_out_dict))
+        info_update_page_dict = {'logout_link' : users.create_logout_url('/')}
+        current_user = get_logged_in_user(self)
+        if current_user.image_model and current_user.image_model.id():
+            img_id = current_user.image_model
+            print "\n\n\n\n\n"
+            print img_id
+            print "\n\n\n\n\n"
+            img_id = img_id.id()
+            info_update_page_dict['image_profile'] = "/img?id=" + str(img_id)
+        self.response.write(form_template.render(info_update_page_dict))
+
+        # this places a form in a space for the user to upload an image
     def submit_form(request):
         if request.method == 'POST':
             form = Form(request.POST)
@@ -141,8 +153,6 @@ class FormPage(webapp2.RequestHandler):
                 self.response.write("Please fill out all fields before submitting.")
                 # Generate Error
     def post(self):
-        form_template = jinja_current_directory.get_template('templates/home-page.html')
-
         # get the user info from their form
         uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
@@ -153,7 +163,13 @@ class FormPage(webapp2.RequestHandler):
         interest_in_form_array = self.request.get("interests", allow_multiple=True)
 
         # image is caught
-        image_in_form = self.request.get("image")
+        # image_in_form = self.request.get("image")
+        # print "\n\n\n\n\n\n\n\n"
+        # print image_in_form
+        # print "\n\n\n\n\n\n\n\n"
+        # self.response.out.write('<div><img src="/img?img_id=%s"></img>' %
+            # user.key.urlsafe())
+        # image_in_form = images.resize(image_in_form, 32, 32)
         # image is saved to a specific file (aka /images)
 
         # convert the string array into an array of Interest Objects
@@ -176,11 +192,7 @@ class FormPage(webapp2.RequestHandler):
 
         # save those changes to our_user values
         our_user.put()
-
-        log_out_dict = {'logout_link' : users.create_logout_url('/')}
-
-        self.response.write(form_template.render(log_out_dict))
-
+        self.redirect('/home')
 
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
@@ -200,14 +212,16 @@ class PeoplePage(webapp2.RequestHandler):
         # here's where I sort the uni matches
         for other_user in uni_matches:
             similarity_index = current_user.compare_interests(other_user)
+            other_user_dict = other_user.to_dict()
+            other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
             if(similarity_index >= 3):
-                interest_matches.insert(0, other_user)
+                interest_matches.insert(0, other_user_dict)
             elif similarity_index == 2:
-                interest_matches.insert(int(len(interest_matches)/2), other_user)
+                interest_matches.insert(int(len(interest_matches)/2), other_user_dict)
             elif similarity_index == 1:
-                interest_matches.append(other_user)
+                interest_matches.append(other_user_dict)
             elif similarity_index == 0:
-                no_interest_matches.append(other_user)
+                no_interest_matches.append(other_user_dict)
 
         # If the array is too short, add the rest of the uni matches
         # if len(interest_matches) < 20:
@@ -216,16 +230,51 @@ class PeoplePage(webapp2.RequestHandler):
         # now it's time to trim it so there's a max 20 recommended users
         # cut it off - because the best ones will be in the front!
         interest_matches = interest_matches[:20]
-
         match_dict = {'matches': interest_matches, 'logout_link' : users.create_logout_url('/')}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(match_dict))
+
+# gets image data from post and stores it to the datastore
+class ImagePage(webapp2.RequestHandler):
+    def get(self):
+        img_id = self.request.get('id')
+        print "\n\n\n\n\n\n\n"
+        print img_id
+        print "\n\n\n\n\n\n"
+
+        if not img_id:
+            return self.error(400)
+        img_item = Image.get_by_id(long(img_id))
+        print img_item
+        if not img_item:
+            return self.error(404)
+        img_in_binary = images.Image(img_item.image)
+        img_in_binary.resize(500, 500)
+        some_img = img_in_binary.execute_transforms(output_encoding=images.JPEG)
+        self.response.headers['Content-Type'] = 'image/jpeg'
+        self.response.out.write(some_img)
+
+        # send it back to the page!
+        # OMG if this works I can use it in my peoples page too!?!
+        # like, I could send the image in binary over? Or I could have each user call this method?
+        # they each have their own image IDs
+        # and then that ID can be used to build like a dictionary? (Or will that mess it up)
+    def post(self):
+        avatar = self.request.get('image')
+        avatar = images.resize(avatar, 500, 500)
+        current_user = get_logged_in_user(self)
+
+        this_image = Image(image=avatar)
+        img_id = this_image.put()
+        current_user.image_model = img_id
+        current_user.put()
+        self.redirect('/info_update')
 
 app = webapp2.WSGIApplication([
     ('/', StartPage),
     ('/home', HomePage),
     ('/login', LoginPage),
-    ('/form', FormPage),
+    ('/info_update', InfoUpdatePage),
     ('/people', PeoplePage),
     ('/img', ImagePage)
 ], debug=True)
