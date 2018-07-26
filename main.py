@@ -202,7 +202,6 @@ class InfoUpdatePage(webapp2.RequestHandler):
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
         current_user = get_logged_in_user(self)
-        print current_user.social_media
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         if not current_user.university:
