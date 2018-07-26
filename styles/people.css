@@ -88,7 +88,7 @@ html {
   padding-right: 10px;
 }
 #col2 {
-  padding-right: 120px;
+  /* padding-right: 120px; */
   overflow-wrap: normal;
 }
 
