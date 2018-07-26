@@ -111,7 +111,7 @@ class LoginPage(webapp2.RequestHandler):
         user = users.get_current_user()
         if not user:
             # You shouldn't be able to get here without being logged in to Google
-            self.error(500)
+            self.error(404)
             return
         our_user = User(
             email=user.nickname(),     # current user's email
