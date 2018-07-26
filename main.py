@@ -142,7 +142,7 @@ class FormPage(webapp2.RequestHandler):
                 self.response.write("Please fill out all fields before submitting.")
                 # Generate Error
     def post(self):
-        form_template = jinja_current_directory.get_template('templates/home-page.html')
+        people_template = jinja_current_directory.get_template('templates/people-page.html')
 
         # get the user info from their form
         uni_in_form = self.request.get("schools")
@@ -180,7 +180,7 @@ class FormPage(webapp2.RequestHandler):
 
         log_out_dict = {'logout_link' : users.create_logout_url('/')}
 
-        self.response.write(form_template.render(log_out_dict))
+        self.redirect('/people')
 
 
 class PeoplePage(webapp2.RequestHandler):

@@ -10,7 +10,7 @@
 .html_image {
   background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
-
+  transition: background 2s linear;
 }
 
 #title {
