@@ -221,13 +221,14 @@ class PeoplePage(webapp2.RequestHandler):
         interest_matches = interest_matches[:20]
 
         match_dict = {'matches': interest_matches,
-                    'logout_link' : users.create_logout_url('/')
-
-        # if not current_user.social_media
-
-        match_dict = {'matches': interest_matches,
                     'logout_link' : users.create_logout_url('/'),
                     'insta_url': current_user.social_media}
+
+        # if not current_user.social_media="":
+        #     match_dict['insta_url']=current_user.social_media
+
+
+
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(match_dict))
 
