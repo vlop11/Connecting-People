@@ -186,6 +186,7 @@ class FormPage(webapp2.RequestHandler):
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
         current_user = get_logged_in_user(self)
+        print current_user.social_media
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         if not current_user.university:
@@ -194,7 +195,8 @@ class PeoplePage(webapp2.RequestHandler):
             return None
 
         # get list of all university matches
-        uni_matches = User.query(User.university == current_user.university, User.email != current_user.email).fetch()
+        uni_matches = User.query(User.university == current_user.university,
+                                User.email != current_user.email).fetch()
         interest_matches = []
         no_interest_matches = []
 
@@ -218,9 +220,17 @@ class PeoplePage(webapp2.RequestHandler):
         # cut it off - because the best ones will be in the front!
         interest_matches = interest_matches[:20]
 
-        match_dict = {'matches': interest_matches, 'logout_link' : users.create_logout_url('/')}
+        match_dict = {'matches': interest_matches,
+                    'logout_link' : users.create_logout_url('/')
+
+        # if not current_user.social_media
+
+        match_dict = {'matches': interest_matches,
+                    'logout_link' : users.create_logout_url('/'),
+                    'insta_url': current_user.social_media}
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(match_dict))
+
 
 class ImagePage(webapp2.RequestHandler):
     pass

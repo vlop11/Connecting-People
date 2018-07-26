@@ -106,3 +106,8 @@ h3 {
   font-family: helvetica;
   font-weight: lighter;
 }
+
+
+.fa:hover {
+    opacity: 0.7;
+}
