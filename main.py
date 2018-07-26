@@ -221,6 +221,9 @@ class PeoplePage(webapp2.RequestHandler):
         # render matches into the html (or it should anyway)
         self.response.write(people_template.render(match_dict))
 
+class ImagePage(webapp2.RequestHandler):
+    pass
+
 app = webapp2.WSGIApplication([
     ('/', StartPage),
     ('/home', HomePage),
