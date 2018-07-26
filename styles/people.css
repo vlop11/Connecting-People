@@ -1,11 +1,7 @@
 #header {
-  /* font-family: helvetica;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  background-color: #e6e6e6;
-  margin: auto;
-  height: 80px; */
+  /* border-bottom-style: solid;
+  border-width: 1px;
+  border-color: black; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +28,7 @@ html {
   padding-left: 20px;
   font-weight: lighter;
   font-family: helvetica;
+  color: black;
 }
 
 #error {
@@ -39,6 +36,7 @@ html {
   font-family: helvetica;
   font-weight: lighter;
   color: red;
+  margin: 0;
 }
 
 #people-text {
@@ -55,9 +53,10 @@ html {
 #people {
   height: 650px;
   width: 1000px;
-  background-color: white;
+  background-color: #ffffffd1;
   margin: auto;
   overflow: auto;
+  border-radius: 10px;
   }
 
 .member-list {
@@ -65,12 +64,14 @@ html {
   padding: 0;
   font-family: helvetica;
   font-weight: lighter;
+  margin-top: 0;
 }
 .member-item {
   display: flex;
   align-items: center;
   padding-left: 35px;
   padding-bottom: 15px;
+  padding-top: 15px;
   border-bottom-style: solid;
   border-width: thin;
   border-color: lightgrey;
@@ -78,7 +79,7 @@ html {
 .member-item-info {
   /* flex-grow:1; */
   padding-left: 15px;
-  width: 300px;
+  width: 400px;
   overflow-wrap: normal;
 }
 #name {
@@ -87,10 +88,13 @@ html {
   padding-right: 10px;
 }
 #col2 {
-  padding-right: 120px;
-  overflow-x: scroll;
+  /* padding-right: 120px; */
+  overflow-wrap: normal;
 }
 
+#major {
+  margin-top: 0;
+}
 img {
   width: 80px;
   height: 80px;
@@ -101,4 +105,9 @@ img {
 h3 {
   font-family: helvetica;
   font-weight: lighter;
+}
+
+
+.fa:hover {
+    opacity: 0.7;
 }

@@ -35,9 +35,11 @@ html {
   width: 500px;
   height: 250px;
   border-style: solid;
-  border-color: black;
+  border-width: thin;
+  padding-top: 15px;
+  border-radius: 10px;
   margin: auto;
-  background-color: white;
+  background-color: #ffffffd1;
 }
 
 #login-title {

@@ -66,6 +66,7 @@ class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
                 jinja_current_directory.get_template('templates/login-page.html')
+        people_template = jinja_current_directory.get_template('templates/people-page.html')
         login_dict = {}
         name = ""
         user = users.get_current_user()
@@ -84,7 +85,7 @@ class LoginPage(webapp2.RequestHandler):
             # if the user is logged in to both Google and us
             if our_site_user:
                 sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
-                self.response.write(login_template.render(sign_out_dict))
+                self.response.write(people_template.render(sign_out_dict))
 
               # If the user is logged into Google but never been to us before..
               # if we want to fix OUR login page, this is where
@@ -192,11 +193,16 @@ class InfoUpdatePage(webapp2.RequestHandler):
 
         # save those changes to our_user values
         our_user.put()
-        self.redirect('/home')
+
+        log_out_dict = {'logout_link' : users.create_logout_url('/')}
+
+        self.redirect('/people')
+
 
 class PeoplePage(webapp2.RequestHandler):
     def get(self):
         current_user = get_logged_in_user(self)
+        print current_user.social_media
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         if not current_user.university:
@@ -205,7 +211,8 @@ class PeoplePage(webapp2.RequestHandler):
             return None
 
         # get list of all university matches
-        uni_matches = User.query(User.university == current_user.university, User.email != current_user.email).fetch()
+        uni_matches = User.query(User.university == current_user.university,
+                                User.email != current_user.email).fetch()
         interest_matches = []
         no_interest_matches = []
 

@@ -15,14 +15,20 @@
 #sign_in_button {
   height: auto;
   width: auto;
-  padding: 0;
+  padding-top: 20px;
   border: None;
+
 }
 .container {
   max-width: 1500px;
   padding-left: .5rem;
   padding-right: .5rem;
+  height: 695px;
   /* margin:auto; */
+}
+.below {
+  background-color: #cab5acf0;
+  height: 620px;
 }
 
 /* #login-header {
@@ -47,7 +53,7 @@
   margin: auto;
   display: flex;
   align-items: center;
-  background-color: #ffffff85;
+  background-color: #cbc6c5c9;
   justify-content: space-between;
 }
 
@@ -78,11 +84,7 @@
 body {
   background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  overflow-x: hidden;
+  margin: 0px;
   /* overflow attempts start here
   overflow: scroll;
   overflow-x: hidden;
@@ -92,9 +94,6 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden; */
-}
-section {
-  overflow: scroll;
 }
 
 /* .footer {
@@ -116,9 +115,33 @@ section {
   padding-left: 20px;
   font-weight: lighter;
   font-family: helvetica;
+  color: black;
+  padding-top: 20px;
 }
 
 #padding {
   height: 70px;
   width: auto;
+}
+
+
+h2 {
+  font-size: 28pt;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-left: 20px;
+  font-weight: lighter;
+  font-family: helvetica;
+  color: black;
+  padding-top: 20px;
+}
+p {
+  margin:100px;
+  padding: 10px 10px;
+  font-size: 18pt;
+  text-align: center;
+  font-weight: lighter;
+  /* font-family: helvetica; */
+  font-family: sans-serif;
+
 }

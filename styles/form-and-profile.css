@@ -14,7 +14,13 @@
   font-family: helvetica;
   color: black;
 }
-
+.buttons a {
+  float: right;
+  padding: 14px 17px;
+  color: black;
+  font-family: helvetica;
+  font-weight: lighter;
+}
 /* #padding {
   height: 150px;
   width: auto;
@@ -48,7 +54,7 @@ select {
 
 .container {
     border-radius: 10px;
-    background-color: #cbc6c5b0;
+    background-color: #cbc6c5c9;
     /* display: flex;
     vertical-align: middle; */
     width: 900px;
@@ -60,7 +66,11 @@ select {
     font-family: helvetica;
     font-weight: lighter;
 }
-
+.col {
+  display: inline-block;
+  padding-right: 15px;
+  text-align: left;
+}
 input[type=submit] {
     background-color: #50708aad;
     color: black;
@@ -110,11 +120,3 @@ input[type=checkbox] {
     min-width: 100%;
     min-height: 100%;
 } */
-
-.buttons a {
-  float: right;
-  padding: 14px 17px;
-  color: black;
-  font-family: helvetica;
-  font-weight: lighter;
-}
