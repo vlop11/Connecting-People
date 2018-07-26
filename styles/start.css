@@ -23,12 +23,12 @@
   max-width: 1500px;
   padding-left: .5rem;
   padding-right: .5rem;
-  height: 695px;
+  height: 100vh;
   /* margin:auto; */
 }
 .below {
   background-color: #cab5acf0;
-  height: 620px;
+  height: 550px;
 }
 
 /* #login-header {
@@ -137,7 +137,6 @@ h2 {
 }
 p {
   margin:100px;
-  padding: 10px 10px;
   font-size: 18pt;
   text-align: center;
   font-weight: lighter;

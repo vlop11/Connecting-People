@@ -105,7 +105,7 @@ class LoginPage(webapp2.RequestHandler):
             self.response.write('''
                 Please log in to Google to use our site! <br>
                 <a href="%s">Sign in</a>''' % (
-                  users.create_login_url('/')))
+                  users.create_login_url('/login')))
 
     def post(self):
         user = users.get_current_user()
@@ -219,7 +219,7 @@ class PeoplePage(webapp2.RequestHandler):
         for other_user in uni_matches:
             similarity_index = current_user.compare_interests(other_user)
             other_user_dict = other_user.to_dict()
-            other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
+            # other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
             if(similarity_index >= 3):
                 interest_matches.insert(0, other_user_dict)
             elif similarity_index == 2:

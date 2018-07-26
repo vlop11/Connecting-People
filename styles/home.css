@@ -40,6 +40,9 @@ body {
   color: white;
   font-size: 30pt;
 }
+.widget {
+  width: 200px;
+}
 .container {
   height: 100vh;
 }
