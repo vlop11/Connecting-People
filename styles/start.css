@@ -116,6 +116,8 @@ section {
   padding-left: 20px;
   font-weight: lighter;
   font-family: helvetica;
+  color: black;
+  padding-top: 20px;
 }
 
 #padding {
