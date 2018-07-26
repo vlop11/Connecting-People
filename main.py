@@ -158,7 +158,7 @@ class InfoUpdatePage(webapp2.RequestHandler):
         uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
-        social_media_in_form = self.request.get("social_media")
+        social_media_in_form = "https://www.instagram.com/" + self.request.get("social_media") + "/"
 
         # this gets me an array of strings, where each string is a value
         interest_in_form_array = self.request.get("interests", allow_multiple=True)
@@ -219,7 +219,9 @@ class PeoplePage(webapp2.RequestHandler):
         for other_user in uni_matches:
             similarity_index = current_user.compare_interests(other_user)
             other_user_dict = other_user.to_dict()
-            # other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
+            # check to make sure other_user.image_model exist
+            if(other_user.image_model):
+                other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
             if(similarity_index >= 3):
                 interest_matches.insert(0, other_user_dict)
             elif similarity_index == 2:
@@ -244,14 +246,11 @@ class PeoplePage(webapp2.RequestHandler):
 class ImagePage(webapp2.RequestHandler):
     def get(self):
         img_id = self.request.get('id')
-        print "\n\n\n\n\n\n\n"
-        print img_id
-        print "\n\n\n\n\n\n"
 
         if not img_id:
             return self.error(400)
         img_item = Image.get_by_id(long(img_id))
-        print img_item
+
         if not img_item:
             return self.error(404)
         img_in_binary = images.Image(img_item.image)
@@ -267,6 +266,7 @@ class ImagePage(webapp2.RequestHandler):
         # and then that ID can be used to build like a dictionary? (Or will that mess it up)
     def post(self):
         avatar = self.request.get('image')
+
         avatar = images.resize(avatar, 500, 500)
         current_user = get_logged_in_user(self)
 

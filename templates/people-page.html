@@ -22,14 +22,14 @@
       {% for item in matches %}
       <li class="member-item">
         <div>
+          <!-- if this image thing doesn't exist, use a separate link -->
           <img class="profile-image" src={{item.image_url}}>
         </div>
         <div class="member-item-info">
           <div class="member-item-personal-info">
             <h3 style="display: inline" id="name">{{item.name}}</h3>
-            <h3 style="display: inline" id="social_media">{{item.social_media}}</h3>
             <h3>{{item.email}}</h3>
-            <a href="{{insta_url}}" class="fa fa-instagram" ></a>
+            <a href={{item.social_media}} class="fa fa-instagram" ></a>
           </div>
         </div>
         <div id="col2">
