@@ -219,6 +219,8 @@ class PeoplePage(webapp2.RequestHandler):
             # check to make sure other_user.image_model exist
             if(other_user.image_model):
                 other_user_dict['image_url'] = "/img?id=" + str(other_user.image_model.id())
+            else:
+                other_user_dict['image_url'] = "../images/Missing_avatar.svg.png"
             if(similarity_index >= 3):
                 interest_matches.insert(0, other_user_dict)
             elif similarity_index == 2:
