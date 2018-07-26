@@ -139,9 +139,6 @@ class InfoUpdatePage(webapp2.RequestHandler):
         current_user = get_logged_in_user(self)
         if current_user.image_model and current_user.image_model.id():
             img_id = current_user.image_model
-            print "\n\n\n\n\n"
-            print img_id
-            print "\n\n\n\n\n"
             img_id = img_id.id()
             info_update_page_dict['image_profile'] = "/img?id=" + str(img_id)
         self.response.write(form_template.render(info_update_page_dict))
