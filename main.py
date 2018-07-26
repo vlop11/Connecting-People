@@ -231,8 +231,8 @@ class PeoplePage(webapp2.RequestHandler):
                 no_interest_matches.append(other_user_dict)
 
         # If the array is too short, add the rest of the uni matches
-        # if len(interest_matches) < 20:
-        #     interest_matches.extend(no_interest_matches)
+        if len(interest_matches) < 20:
+            interest_matches.extend(no_interest_matches)
 
         # now it's time to trim it so there's a max 20 recommended users
         # cut it off - because the best ones will be in the front!
