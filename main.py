@@ -226,6 +226,6 @@ app = webapp2.WSGIApplication([
     ('/home', HomePage),
     ('/login', LoginPage),
     ('/form', FormPage),
-    ('/people', PeoplePage),
-    ('/img', ImagePage)
+    ('/people', PeoplePage)
+    # ('/img', ImagePage)
 ], debug=True)

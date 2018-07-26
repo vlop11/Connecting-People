@@ -28,6 +28,7 @@ html {
   padding-left: 20px;
   font-weight: lighter;
   font-family: helvetica;
+  color: black;
 }
 
 #error {
@@ -52,7 +53,7 @@ html {
 #people {
   height: 650px;
   width: 1000px;
-  background-color: white;
+  background-color: #ffffffd1;
   margin: auto;
   overflow: auto;
   border-radius: 10px;
@@ -78,7 +79,7 @@ html {
 .member-item-info {
   /* flex-grow:1; */
   padding-left: 15px;
-  width: 300px;
+  width: 400px;
   overflow-wrap: normal;
 }
 #name {
@@ -88,7 +89,7 @@ html {
 }
 #col2 {
   padding-right: 120px;
-  overflow-x: scroll;
+  overflow-wrap: normal;
 }
 
 #major {

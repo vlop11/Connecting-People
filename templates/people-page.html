@@ -7,21 +7,21 @@
 <style>A {text-decoration: none;} </style>
 <body>
   <div id="header">
-    <h1 id="title">U-REACH</h1>
+    <a id="title" href="/home">U-REACH</a>
     <div class="buttons">
       <a class="navbutton" href={{logout_link}}>Logout</a>
       <a class="navbutton" href='/home'>Home</a>
       <a class="navbutton" href='/form'>Profile</a>
     </div>
   </div>
-  <br><br>
+  <br>
   <div id="people">
     <h3 id="people-text">people to hang with!</h3>
     <ul class="member-list">
       {% for item in matches %}
       <li class="member-item">
         <div>
-          <img class="profile-image" src="https://img00.deviantart.net/0d42/i/2015/016/b/5/batman_headshot_by_josephmichaeldavis-d8e6den.png">
+          <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png" />
         </div>
         <div class="member-item-info">
           <div class="member-item-personal-info">
