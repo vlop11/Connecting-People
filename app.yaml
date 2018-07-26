@@ -12,9 +12,23 @@ handlers:
 - url: /scripts
   static_dir: scripts
 
+- url: /home
+  script: main.app
+  login: required
+  auth_fail_action: redirect
+
+- url: /people
+  script: main.app
+  login: required
+  auth_fail_action: redirect
+
+- url: /form
+  script: main.app
+  login: required
+  auth_fail_action: redirect
+
 - url: /.*
   script: main.app
-
 
 libraries:
 - name: jinja2
