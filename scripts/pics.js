@@ -1,6 +1,8 @@
 var images = [
   "../images/bank.jpg",
-  "../images/tech.jpg"
+  "../images/georgiatech.jpg",
+  "../images/omni.jpg"
+
 ]
 
 var imageHead = document.getElementsByClassName("html_image")[0];
