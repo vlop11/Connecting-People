@@ -208,7 +208,7 @@ class PeoplePage(webapp2.RequestHandler):
 
         # get list of all university matches
         uni_matches = User.query(User.university == current_user.university,
-                                User.email != current_user.email).fetch()
+                            User.email != current_user.email).fetch()
         interest_matches = []
         no_interest_matches = []
 
