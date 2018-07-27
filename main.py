@@ -106,7 +106,6 @@ class LoginPage(webapp2.RequestHandler):
                 Please log in to Google to use our site! <br>
                 <a href="%s">Sign in</a>''' % (
                   users.create_login_url('/login')))
-            # self.redirect('/_ah/login?continue=http%3A//localhost%3A8080/login')
 
     def post(self):
         user = users.get_current_user()
