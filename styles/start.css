@@ -29,6 +29,7 @@
 .below {
   background-color: #cab5acf0;
   height: 550px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 1), 0 10px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* #login-header {
@@ -55,14 +56,21 @@
   align-items: center;
   background-color: #cbc6c5c9;
   justify-content: space-between;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .5), 0 10px 40px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 #slogan {
   text-align: center;
+  /* alternative fonts;
+  font-family: times, Times, georgia, serif;
+  font-weight: 10;*/
   font-family: helvetica;
   font-weight: lighter;
   font-size: 24pt;
   opacity: 10;
+
+
 }
 
 /* .fullscreen_image {
@@ -120,7 +128,7 @@ body {
 }
 
 #padding {
-  height: 70px;
+  height: 185px;
   width: auto;
 }
 
