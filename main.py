@@ -156,7 +156,9 @@ class InfoUpdatePage(webapp2.RequestHandler):
         uni_in_form = self.request.get("schools")
         age_in_form = self.request.get("ages")
         major_in_form = self.request.get("majors")
-        social_media_in_form = "https://www.instagram.com/" + self.request.get("social_media") + "/"
+        insta = self.request.get("social_media")
+        handle = str(insta).replace("@",'')
+        social_media_in_form = "https://www.instagram.com/" + handle + "/"
 
         # this gets me an array of strings, where each string is a value
         interest_in_form_array = self.request.get("interests", allow_multiple=True)

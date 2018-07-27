@@ -91,7 +91,9 @@ html {
   /* padding-right: 120px; */
   overflow-wrap: normal;
 }
-
+#interests {
+  margin-bottom: 0;
+}
 #major {
   margin-top: 0;
 }
