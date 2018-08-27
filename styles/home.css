@@ -45,6 +45,7 @@ body {
   font-weight: lighter;
   color: white;
   font-size: 30pt;
+  margin-top: 0;
 }
 .widget {
   width: 200px;

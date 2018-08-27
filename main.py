@@ -86,10 +86,11 @@ class LoginPage(webapp2.RequestHandler):
             # if the user is logged in to both Google and us
             if our_site_user:
                 sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
-                self.response.write(home_template.render(sign_out_dict))
+                # self.response.write(home_template.render(sign_out_dict))
+                self.redirect('/home')
 
-              # If the user is logged into Google but never been to us before..
-              # if we want to fix OUR login page, this is where
+            # If the user is logged into Google but never been to us before..
+            # if we want to fix OUR login page, this is where
             else:
                 # self.response.write('''
                 #  Welcome to our site, %s!  Please sign up! <br>
