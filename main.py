@@ -66,7 +66,6 @@ class LoginPage(webapp2.RequestHandler):
     def get(self):
         login_template = \
                 jinja_current_directory.get_template('templates/login-page.html')
-        people_template = jinja_current_directory.get_template('templates/people-page.html')
         home_template = jinja_current_directory.get_template('templates/home-page.html')
         login_dict = {}
         name = ""
@@ -86,8 +85,9 @@ class LoginPage(webapp2.RequestHandler):
             # if the user is logged in to both Google and us
             if our_site_user:
                 sign_out_dict = {'logout_link' : signout_link, 'name' : our_site_user.name, 'email_address' : email_address}
-                self.response.write(home_template.render(sign_out_dict))
-                # self.redirect('/home')
+                # self.response.write(home_template.render(sign_out_dict))
+                # this redirect should be better than rendering the page
+                self.redirect('/home')
 
             # If the user is logged into Google but never been to us before..
             # if we want to fix OUR login page, this is where
@@ -104,11 +104,8 @@ class LoginPage(webapp2.RequestHandler):
 
         # Otherwise, the user isn't logged in to Google or us!
         else:
-            # self.redirect(users.create_login_url('/login'))
-             self.response.write('''
-                 Please log in to Google to use our site! <br>
-                 <a href="%s">Sign in</a>''' % (
-                   users.create_login_url('/login')))
+            self.redirect(users.create_login_url('/login'))
+            # self.response.write('''Please log in to Google to use our site! <br><a href="%s">Sign in</a>''' % (users.create_login_url('/login')))
 
     def post(self):
         user = users.get_current_user()
@@ -207,7 +204,7 @@ class PeoplePage(webapp2.RequestHandler):
         people_temp_dict = {}
         people_template = jinja_current_directory.get_template('templates/people-page.html')
         if not current_user.university:
-            people_temp_dict = {'Error' : "Oops - please fill out profile form first to find your matches!"}
+            people_temp_dict = {'Error' : "Oops - please fill out profile form first to find your matches!", "logout_link": users.create_logout_url('/')}
             self.response.write(people_template.render(people_temp_dict))
             return None
 
