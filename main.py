@@ -103,10 +103,11 @@ class LoginPage(webapp2.RequestHandler):
 
         # Otherwise, the user isn't logged in to Google or us!
         else:
-            self.response.write('''
-                Please log in to Google to use our site! <br>
-                <a href="%s">Sign in</a>''' % (
-                  users.create_login_url('/login')))
+            self.redirect(users.create_login_url('/login'))
+            #  self.response.write('''
+                #  Please log in to Google to use our site! <br>
+                #  <a href="%s">Sign in</a>''' % (
+                  #  users.create_login_url('/login')))
 
     def post(self):
         user = users.get_current_user()
