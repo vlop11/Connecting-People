@@ -4,18 +4,25 @@
   align-items: center;
   flex-wrap: nowrap;
 }
-
-.html_image {
+/* .html_image {
   background: url("../images/bank.jpg") no-repeat center center fixed;
   background-size: cover;
   transition: background 2s linear;
   overflow-x: hidden;
+} */
+
+/* new method for cross-fading background */
+html {
+  background-size: cover;
+  background: url("../images/bank.jpg") no-repeat center center fixed;
+  /* background-blend-mode: darken; */
+  /* blend mode optional at this stage; will be used more in the next demo. */
+  transition: 4s;
 }
 body {
   margin-bottom: 0px;
   margin-left: 0px;
 }
-
 #title {
   font-size: 28pt;
   letter-spacing: 5px;
@@ -25,7 +32,6 @@ body {
   font-family: helvetica;
   color: black;
 }
-
 .buttons a {
   float: right;
   padding: 14px 17px;
@@ -33,7 +39,6 @@ body {
   font-family: helvetica;
   font-weight: lighter;
 }
-
 #wel_message {
   text-align: center;
   font-family: helvetica;
